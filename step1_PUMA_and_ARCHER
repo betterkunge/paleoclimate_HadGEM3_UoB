@@ -11,4 +11,4 @@
   5. create the public SSH key on bluecrystal and/or BRIDGE server type:
         ssh-keygen -t rsa -f ~/.ssh/id_rsa_puma2
      then upload the generated id_rsa_puma2.pub on the required SAFE page, and click request in the bottom of this page.
-  6. you may get the arcger2 account!!!!
+  6. your PI will be asked to approve this request. after it approve it, you can proceed to the next step
