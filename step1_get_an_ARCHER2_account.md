@@ -14,6 +14,6 @@ ARCHER2 is the UK’s national supercomputing service, designed to support high-
   3. "Select correct project group" select: n02 - NCAS (National Centre for Atmospheric Science) from the drop down list.
   4. "Select a machine for the login account" select: archer2
   5. create the public SSH key on bluecrystal and/or BRIDGE server type:
-        ssh-keygen -t rsa -f ~/.ssh/id_rsa_puma2
-     then upload the generated id_rsa_puma2.pub on the required SAFE page, and click request in the bottom of this page.
+        ssh-keygen -t rsa -f ~/.ssh/id_rsa_archer2
+     then upload the generated id_rsa_archer2.pub on the required SAFE page, and click request in the bottom of this page.
   6. your PI will be asked to approve this request. after it approve it, you can proceed to the next step
