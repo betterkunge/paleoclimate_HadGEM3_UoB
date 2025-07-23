@@ -47,6 +47,15 @@ visit:https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html
    puma2$ cp ~um1/um-training/puma2/.bashrc .
    ```
    logout and login agian to pick up these changes. You should be prompted for your Met Office Science Repository Service (MOSRS) password, then username.
+6. Set up your ssh-agent
+  In order to submit jobs to ARCHER2 from PUMA2, you will need to set up an ssh-agent and use it to cache the passphrase to your ARCHER2 key.
+    1. Copy your ARCHER2 ssh-key pair to PUMA2
+    On the **eocene** server or the other you used to login ARCER2 at step1, run the following command:
+    ```bash
+    scp -i ~/.ssh/id_rsa_archer2 ~/.ssh/id_rsa_archer2* <archer2-username>@login.archer2.ac.uk:/home/n02/n02-puma/<archer2-username>/.ssh
+    ```
+    2.
+   
 
 
 
