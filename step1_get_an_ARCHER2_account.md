@@ -1,10 +1,13 @@
-# **official version:**  
+# **Background:**  
+ARCHER2 is the UK’s national supercomputing service, designed to support high-performance computing (HPC) for academic, industrial, and public sector research.
+
+# **Official version:**  
   just follow the link below:  
   https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer
 
 ***
 
-# **personal version:**
+# **Personal version:**
   1. Get a SAFE account on the website below, by your UoB email adress:
       https://safe.epcc.ed.ac.uk/login.jsp
   2. Log in, then click on the "login accounts" tab at the top of the page.
