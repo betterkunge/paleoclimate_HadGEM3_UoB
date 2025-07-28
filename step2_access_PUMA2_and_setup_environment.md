@@ -50,12 +50,35 @@ visit:https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html
 6. Set up your ssh-agent
   In order to submit jobs to ARCHER2 from PUMA2, you will need to set up an ssh-agent and use it to cache the passphrase to your ARCHER2 key.
     1. Copy your ARCHER2 ssh-key pair to PUMA2
-    On the **eocene** server or the other you used to login ARCER2 at step1, run the following command:
-    ```bash
-    scp -i ~/.ssh/id_rsa_archer2 ~/.ssh/id_rsa_archer2* <archer2-username>@login.archer2.ac.uk:/home/n02/n02-puma/<archer2-username>/.ssh
-    ```
-    2.
-   
+       On the **eocene** server or the other you used to login ARCER2 at step1, run the following command:
+       ```bash
+       scp -i ~/.ssh/id_rsa_archer2 ~/.ssh/id_rsa_archer2* <archer2-username>@login.archer2.ac.uk:/home/n02/n02-puma/<archer2-username>/.ssh
+       ```
+    2. Start up your ssh-agent
+       First copy the ssh-setup script to your .ssh/ directory.
+       ```bash
+       puma2$ cp ~um1/um-training/setup/ssh-setup ~/.ssh
+       ```
+       Next log out of PUMA2 and back in again to start up the ssh-agent process. You should see the following message
+    3. Add your ARCHER2 key
+       Add your ARCHER2 key to the ssh-agent, by running
+       ```bash
+       puma2$ ssh-add ~/.ssh/id_rsa_archer2
+       ```
+       The ssh-agent will continue to run even when you log out of PUMA2. However, it may stop from time to time, for example if PUMA2 is rebooted. For instructions on what to do in this situation see [Restarting your ssh agent](https://ncas-cms.github.io/um-training/ssh-tasks.html#restarting-agent) in the Appendix.
+    4. Configure access to the ARCHER2 login nodes
+       Create a file ~/.ssh/config (if it doesn’t already exist), and add the following lines:
+       ```bash
+       # ARCHER2 login nodes
+       Host ln*
+       IdentityFile ~/.ssh/id_rsa_archer2
+       ```
+    5. Verify the setup is correct
+       To test this is all working correctly, run:
+       ```bash
+       puma2$ rose host-select archer2
+       ```
+       This should return one of the login nodes, e.g. ln01. If it returns a message like [WARN] ln03: (ssh failed) then something has gone wrong with the ssh setup.
 
 
 
