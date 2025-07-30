@@ -14,6 +14,11 @@ Rose also contains other optional tools for:
     
 ## Installation
 Visit: [Installation of rose&cylc](https://metomi.github.io/rose/doc/html/tutorial/rose/index.html)
+After installation, run the command below to ensure all required dependencies are installed:
+```bash
+rose check-software
+```
+(know more in https://metomi.github.io/rose/doc/html/api/command-reference.html#command-rose-check-software)
 ## Text Editor
 ## Rose Configuration
 
