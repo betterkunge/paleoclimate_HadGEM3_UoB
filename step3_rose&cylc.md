@@ -13,7 +13,7 @@ Rose also contains other optional tools for:
     4. Interfacing with Cylc.  
     
 ## Installation
-Visit: https://metomi.github.io/rose/doc/html/tutorial/rose/index.html
+Visit: [Installation of rose&cylc](https://metomi.github.io/rose/doc/html/tutorial/rose/index.html)
 ## Text Editor
 ## Rose Configuration
 
