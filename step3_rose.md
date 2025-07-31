@@ -27,7 +27,7 @@ rose check-software
 (know more in https://metomi.github.io/rose/doc/html/api/command-reference.html#command-rose-check-software)
 ## Text Editor
 ## Rose Configuration
-Rose configurations are **directories** containing a Rose configuration file along with other optional assets which define behaviours such as:
+Rose configurations are **directories** containing a Rose configuration file （**rose-*.conf**） along with other optional assets which define behaviours such as:
 - Execution.
 - File installation.
 - Environment variables.
@@ -45,11 +45,12 @@ With Rose configurations the **inputs** and **environment** required for a parti
 Configuration settings can have **metadata** associated with them which may be used for multiple purposes including automatic checking and transforming.
 Rose configurations can be edited either using a text editor or with the **rose config-edit** (rose config-edit filename.conf) GUI which makes use of metadata for display and on-the-fly validation purposes.
 
-##Rose Applications
+### Rose Applications
 A Rose application or “Rose app” is a runnable Rose configuration which executes a defined command.
 Rose applications provide a convenient way to encapsulate all of this configuration, storing it all in one place to make it easier to handle and maintain.
+the configuration of Rose app (application configuration) is a diectory containing a **rose-app.conf** file. 
 
-##Rose Glossary
+### Rose Glossary
 - rose config-edit
 - rose app-run
 
