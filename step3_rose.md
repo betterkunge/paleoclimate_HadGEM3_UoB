@@ -1,10 +1,5 @@
 ## **Background:**  
 On the PUMA2, the rose and cylc have been well installed. By the **setup** proceeding in step2, we can directly invoke the rose and cylc. This description is just for a deeper understanding of the configuration and workflow of rose&cylc.
-Throughout this tutorial we will refer to settings in the following format:
-- file - will refer to a Rose configuration file.
-- file|setting - will refer to a setting in a Rose configuration file.
-- file[section] - will refer to a section in a Rose configuration file.
-- file[section]setting - will refer to a setting in a section in a Rose configuration file.
 
 ## what is rose?
 Rose is a toolkit for writing, editing and running application configurations.
@@ -39,6 +34,33 @@ A runnable Rose configuration which executes a defined command.
 
 - Rose suite configuration
 A Rose configuration designed to run Cylc workflows. For instance it may be used to define Jinja2 variables for use in the `flow.cylc` file.
+
+### Rose Configuration Format
+All Rose configuration files use the same format which is based on the INI file format. Like the file format for Cylc workflows:
+- Comments start with a `#` character.
+- Settings are written as `key=value` pairs.
+- Sections are written inside square brackets i.e. `[section-name]`    
+However, there are also key differences, and unlike the file format for Cylc workflows:
+- Sections cannot be nested.
+- Settings should not be indented.
+- Comments must start on a new line (i.e. you cannot have inline comments).
+- There should not be spaces around the `=` operator in a `key=value` pair.
+For example:
+```INI
+# Comment.
+setting=value
+
+[section]
+key=value
+multi-line-setting=multi
+                  =line
+                  =value
+```
+Throughout this tutorial we will refer to settings in the following format:
+- `file` - will refer to a Rose configuration file.
+- `file|setting` - will refer to a setting in a Rose configuration file.
+- `file[section]` - will refer to a section in a Rose configuration file.
+- `file[section]setting` - will refer to a setting in a section in a Rose configuration file.
 
 ### Why use rose configuration
 With Rose configurations the **inputs** and **environment** required for a particular purpose can be encapsulated in a simple **human-readable** configuration.
