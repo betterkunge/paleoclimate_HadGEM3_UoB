@@ -1,4 +1,4 @@
-# **Background:**  
+## **Background:**  
 On the PUMA2, the rose and cylc have been well installed. By the **setup** proceeding in step2, we can directly invoke the rose and cylc. This description is just for a deeper understanding of the configuration and workflow of rose&cylc.
 Throughout this tutorial we will refer to settings in the following format:
 - file - will refer to a Rose configuration file.
@@ -93,9 +93,6 @@ This example gives the `WORLD` variable a title and a list of allowed `values`.
 
 
 
-## what is cylc?  
-Cylc (pronounced silk) is a workflow engine, a system that automatically executes tasks according to schedules and dependencies.
-visit:https://cylc.github.io/cylc-doc/stable/html/user-guide/introduction.html#what-is-cylc
 
-# **Official version:**  
+
 
