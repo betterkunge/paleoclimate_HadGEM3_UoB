@@ -34,6 +34,7 @@ The graph of a suite refers to the graph strings contained within the [schedulin
 ### [Graph Strings](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/graphing.html#graph-strings)
 
 In Cylc we consider workflows in terms of [tasks](https://metomi.github.io/rose/2019.01.8/html/glossary.html#term-task) and [dependencies](https://metomi.github.io/rose/2019.01.8/html/glossary.html#term-dependency). 
+[Uploading Graphing — Rose Documentation 2019.01.8 documentation.html…]()
 
 Task are represented as words and dependencies as arrows (`=>`), so the following text defines two tasks where `make_dough` is dependent on `purchase_ingredients`:
 ```INI
@@ -53,3 +54,28 @@ Graph strings can also contain “and” (`&`) and “or” (`|`) operators, for
 purchase_ingredients => make_dough
 pre_heat_oven & make_dough => bake_bread => sell_bread & clean_oven
 Collectively these graph strings are referred to as a graph.
+
+### [cylc graphs](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/graphing.html#cylc-graphs)
+In a Cylc suite the graph is stored under the [scheduling][dependencies]graph setting, i.e:
+```INI
+[scheduling]
+    [[dependencies]]
+        graph = """
+            purchase_ingredients => make_dough
+            pre_heat_oven & make_dough => bake_bread => sell_bread & clean_oven
+        """
+```
+This is a minimal Cylc suite. We have not yet provided Cylc with the scripts or binaries to run for each task. This will be covered later in the [runtime tutorial](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/index.html#tutorial-runtime).
+Cylc provides a GUI for visualising graphs. It is run on the command line using the `cylc graph <path>` command where the path `path` is to the `suite.rc` file you wish to visualise.
+
+
+
+
+
+
+### Glossary
+- cylc graph <path>
+used to display a diagram of a suite.rc.
+
+
+
