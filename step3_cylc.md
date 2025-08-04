@@ -68,7 +68,7 @@ In a Cylc suite the graph is stored under the [scheduling][dependencies]graph se
 This is a minimal Cylc suite. We have not yet provided Cylc with the scripts or binaries to run for each task. This will be covered later in the [runtime tutorial](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/index.html#tutorial-runtime).
 Cylc provides a GUI for visualising graphs. It is run on the command line using the `cylc graph <path>` command where the path `path` is to the `suite.rc` file you wish to visualise.
 
-
+## Basic Cycling
 
 
 
