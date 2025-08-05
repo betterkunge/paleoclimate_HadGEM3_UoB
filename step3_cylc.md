@@ -69,11 +69,66 @@ This is a minimal Cylc suite. We have not yet provided Cylc with the scripts or 
 Cylc provides a GUI for visualising graphs. It is run on the command line using the `cylc graph <path>` command where the path `path` is to the `suite.rc` file you wish to visualise.
 
 ## Basic Cycling
+In this section we will look at how to write cycling (repeating) workflows.
+### [Repeating Workflows](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/integer-cycling.html#repeating-workflows)
+To make a workflow repeat we must tell Cylc three things:
+- The **recurrence**
+  How often we want the workflow to repeat.
+- The **initial cycle point**
+  At what cycle point we want to start the workflow.
+- The **final cycle point**
+  Optionally we can also tell Cylc what cycle point we want to stop the workflow.
+
+A Bakery example supplied by tutorial:
+```diff
+[scheduling]
++    cycling mode = integer
++    initial cycle point = 1
+    [[dependencies]]
++        [[[P1]]]
+            graph = """
+                purchase_ingredients => make_dough
+                pre_heat_oven & make_dough => bake_bread => sell_bread & clean_oven
+            """
+```
+- The **cycling mode** = integer setting tells Cylc that we want our cycle points to be numbered.
+- The **initial cycle point** = 1 setting tells Cylc to start counting from 1.
+- P1 is the **recurrence**. The graph within the [[[P1]]] section will be repeated at each cycle point.
+
+### [Inter-Cycle Dependencies]（https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/integer-cycling.html#inter-cycle-dependencies）
+In the last session, we introduced the basic cycling syntax—placing the graph inside the [[[P1]]] section. In real workflows, dependencies between different cycles are common. To support this, Cylc provides a set of syntax features specifically designed to represent inter-cycle dependencies.
+
+By default recurrences start at the initial cycle point, however it is possible to make them start at an arbitrary cycle point. This is done by writing the cycle point and the recurrence separated by a forward slash (`/`), e.g. `5/P3` means repeat every third cycle starting from cycle number 5.
+
+The start point of a recurrence can also be defined as an offset from the initial cycle point, e.g. `+P5/P3` means repeat every third cycle starting `5` cycles after the initial cycle point.
+
+Here comes a example in the [practical] (https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/integer-cycling.html#admonition-5)
+
+## [Date-Time Cycling](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/datetime-cycling.html#date-time-cycling)
+In last session, we introduced the cycling mode of integer and the two corresponding ingradient: **initial cycle point** and **recurrence**. They are useful to show the configuration of the cylc. However, in the real work flow of tasks like climate simulations, the cycling is always in the form of date-time. 
+In Cylc, dates, times and durations are written using the ISO 8601 format - an international staandard for representing dates and times. please refer to [ISO8601](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/datetime-cycling.html#iso8601) for further details.
+### Date-Time Recurrences
+In integer cycling, suites’ recurrences are written P1, P2, etc.
+In date-time cycling there are two ways to write recurrences:
+1. Using ISO8601 durations (e.g. P1D, PT1H).
+2. Using ISO8601 date-times () with inferred recurrence.
+
+A recurrence can be inferred from a date-time by omitting digits from the front. For example, if the year is omitted then the recurrence can be inferred to be annual. E.G:
+```
+2000-01-01T00   # Datetime - midnight on the 1st of January 2000.
+
+     01-01T00   # Every year on the 1st of January.
+        01T00   # Every month on the first of the month.
+          T00   # Every day at midnight.
+          T-00  # Every hour at zero minutes past (every hour on the hour).
+```
+#### The Initial & Final Cycle Points
+There are two special recurrences for the initial and final cycle points:
+- R1: repeat once at the initial cycle point.
+- R1/P0Y: repeat once at the final cycle point.
 
 
-
-
-### Glossary
+## Glossary
 - cylc graph <path>
 used to display a diagram of a suite.rc.
 
