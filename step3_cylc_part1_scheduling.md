@@ -126,8 +126,57 @@ A recurrence can be inferred from a date-time by omitting digits from the front.
 There are two special recurrences for the initial and final cycle points:
 - R1: repeat once at the initial cycle point.
 - R1/P0Y: repeat once at the final cycle point.
-
-
+#### [Inter-Cycle Dependencies](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/datetime-cycling.html#inter-cycle-dependencies)
+Inter-cycle dependencies are written as ISO8601 durations, e.g:
+- `foo[-P1D]`: the task foo from the cycle one day before.
+- `bar[-PT1H30M]`: the task bar from the cycle 1 hour 30 minutes before.
+- The `initial cycle point` can be referenced using a caret character `^`, e.g:
+`baz[^]`: the task `baz` from the initial cycle point.
+### example from [practical](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/scheduling/datetime-cycling.html#admonition-8)
+```INI
+[cylc]
+    UTC mode = True
+    # this flag means the
+[scheduling]
+    initial cycle point = 20000101T00Z
+    [[dependencies]]
+        [[[R1]]]
+            graph = """
+                build_adergrove_station
+                build_camborne_station
+                build_heathrow_station
+                build_shetland_station
+            """
+        [[[PT3H]]]
+            graph = """
+                build_adergrove_station[^] => get_observations_aldergrove => consolidate_observations
+                build_camborne_station[^] => get_observations_camborne => consolidate_observations
+                build_heathrow_station[^] => get_observations_heathrow => consolidate_observations
+                build_shetland_station[^] => get_observations_shetland => consolidate_observations
+            """
+        [[[+PT6H/PT6H]]]
+            graph = """
+                consolidate_observations => forecast
+                consolidate_observations[-PT3H] => forecast
+                consolidate_observations[-PT6H] => forecast
+                get_rainfall => forecast => post_process_exeter
+            """
+```
+## Further Scheduling    
+### Qualifiers    
+dependencies like `foo => ba`r is, in fact, shorthand for `foo:succeed => bar`.
+We refer to the `:succeed` descriptor as a qualifier. There are qualifiers for different task states e.g:
+- `:start`
+When the task has started running.
+- `:fail`
+When the task finishes if it fails (produces non-zero return code).
+- `:finish`
+When the task has completed (either succeeded or failed).
+### Clock Triggers    
+To be supplemented in the future.
+### Alternative Calendars  
+To be supplemented in the future.
+## 
 ## Glossary
 - cylc graph <path>
 used to display a diagram of a suite.rc.
