@@ -1,4 +1,6 @@
-## [Introduction] (https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#introduction)
+## Runtime Configuration
+the content of this file  are mostly taken from [Runtime Configuration session](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#introduction) and [introduction session](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#introduction) of cylc tutorial.    
+
 So far, we have been working with  `[schedule]` section. This is where the workflow is defined in terms of tasks and dependencies.  
 
 In order to make the workflow runnable 
@@ -63,7 +65,10 @@ I will introduce the runtime sector and its configuration by the instance in the
             print choice(['Windy', 'Rainy', 'Sunny', 'Snowy'])"
         """
 ```
-In the runtime section of this `suite.rc`, the tasks claimed in Scheduling are associated by concrete commands by the defining the script. Among the runtime tasks, the `process<site>` is a special one, because there is no identical identical task can be found in scheduling.
+In the `[runtime]` section of this suite.rc, the tasks specified in `[scheduling]` are linked to their actual commands by defining the `script`.
+Note that in the `[scheduling]` section, tasks are arranged within the **graph** under the `[[[recurrence]]]` sections, whereas in `[runtime]` each task is denoted in the sub-section of `[runtime]`.
+Among the runtime tasks, the `process<site>` is a special one, because there is no identical identical task can be found in scheduling.  
+
 The task `process<site>` in the `[runtime]` section is a **template task** — it's not a task that runs by itself. Instead, it's used to define common settings (like the script or environment) for a family of tasks that follow the same structure but vary by name.
 In the `[scheduling]` section, we see an instance of this template used:
 ```ini
@@ -71,8 +76,32 @@ forecast => process_exeter
 ```
 Here, `process_exeter` is a concrete task instance derived from the `process<site>` template. Cylc automatically recognizes that process_exeter matches the template and applies the corresponding runtime configuration from `process<site>`.
 
+### Further configuration
+In addition to link the command to tasks, There are some configurations for certain tasks claimed in the [runtime] section.  
 
+For example, we can specify environment variables in a task’s [environment] section. These [[[environment]]] variables are then provided to **jobs**(jobs is the instances of tasks) when they run.
+```ini
+[runtime]
+    [[countdown]]
+        script = seq $START_NUMBER
+        [[[environment]]]
+            START_NUMBER = 5
+```
+Each job is also provided with some standard environment variables e.g:  
+- CYLC_SUITE_RUN_DIR:
+The path to the suite’s run directory (e.g. ~/cylc-run/suite).
+- CYLC_TASK_WORK_DIR:
+The path to the associated task’s work directory (e.g. run-directory/work/cycle/task).
+- CYLC_TASK_CYCLE_POINT:
+The cycle point for the associated task (e.g. 20171009T0950).
 
+There are some other configurations about the submission of **jobs**, timeouts, and Retries.
+## About the Runing of cylc
+visit the links below For detailed informations about:
+- [relationship bettween tasks and jobs](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#tasks-and-jobs)
+- [how to run the suite](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#running-a-suite)
+- [where do the output generate](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#where-do-all-the-files-go)
+- [The Cylc GUI](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#the-cylc-gui)
 ## Glossary
 - `cylc validate <path/to/suite>`
 a command which automatically checks for any obvious configuration issues
