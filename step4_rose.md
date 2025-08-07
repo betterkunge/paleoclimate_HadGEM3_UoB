@@ -1,6 +1,3 @@
-## **Background:**  
-On the PUMA2, the rose and cylc have been well installed. By the **setup** proceeding in step2, we can directly invoke the rose and cylc. This description is just for a deeper understanding of the configuration and workflow of rose&cylc.
-
 ## what is rose?
 Rose is a toolkit for writing, editing and running application configurations.
 Rose also contains other optional tools for:
@@ -12,14 +9,9 @@ Rose also contains other optional tools for:
 - Validating and transforming Rose configurations.
 
 - Interfacing with Cylc.  
-    
-## Installation
-Visit: [Installation of rose&cylc](https://metomi.github.io/rose/doc/html/tutorial/rose/index.html)    
-After installation, run the command below to ensure all required dependencies are installed:
-```bash
-rose check-software
-```
-(know more in https://metomi.github.io/rose/doc/html/api/command-reference.html#command-rose-check-software)
+
+Visit: [rose tutorial](https://metomi.github.io/rose/2019.01.8/html/tutorial/rose/index.html)
+
 ## Text Editor
 ## Rose Configuration
 Rose configurations are **directories** containing a Rose configuration file （`rose-*.conf`） along with other optional assets which define behaviours such as:
