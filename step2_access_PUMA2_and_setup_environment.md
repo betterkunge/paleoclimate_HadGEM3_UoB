@@ -16,7 +16,7 @@ visit:https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html
    ```bash
    chmod -R g+rX /home/n02/n02/<your-username>  
    chmod -R g+rX /work/n02/n02/<your-username>
-3. require the access to visit puma2 on the SAFE system. click the *add machine* button on the *login accounts* page.
+3. require the access to visit puma2 on the SAFE system. click the `*add machine*` button on the `*login accounts*` page.
 4. Access the PUMA2 by the command below:  
    ```bash
    archer2$ ssh -Y puma2
