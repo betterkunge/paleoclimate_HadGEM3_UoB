@@ -8,7 +8,7 @@
 ### getting an account:
 
 - instructions to get started are conveniently listed at https://help.jasmin.ac.uk/article/189-get-started-with-jasmin, but I think not all steps are essential. I did the following:
-	1. [Create a JASMIN portal account](https://help.jasmin.ac.uk/article/4435-get-a-jasmin-account-portal). Don't specify a SSH key yet, we will generate one later on NEXCS/Monsoon.
+	1. [Create a JASMIN portal account](https://help.jasmin.ac.uk/article/4435-get-a-jasmin-account-portal).
 	2. [Request ssh login access to JASMIN](https://help.jasmin.ac.uk/article/161-get-login-account)
 	3. Apply for access to additional services and [group workspaces on JASMIN](https://help.jasmin.ac.uk/article/3801-apply-for-access-to-a-gws):  
 		- **hpxfer** (use of high-performance data transfer services; don’t worry about supplying an IP address because NEXCS is whitelisted) 
