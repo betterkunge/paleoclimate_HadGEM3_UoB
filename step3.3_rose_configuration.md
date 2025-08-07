@@ -12,7 +12,6 @@ Rose also contains other optional tools for:
 
 Visit: [rose tutorial](https://metomi.github.io/rose/2019.01.8/html/tutorial/rose/index.html)
 
-## Text Editor
 ## Rose Configuration
 Rose configurations are **directories** containing a Rose configuration file （`rose-*.conf`） along with other optional assets which define behaviours such as:
 - Execution.
