@@ -28,3 +28,7 @@ The name can be overridden using the --name option i.e:
 `rose suite-run --name <SUITE_NAME>`
 ## Glossary
 rose suite-run.
+
+`rose suite-log`：
+log in the Rose Bush page
+
