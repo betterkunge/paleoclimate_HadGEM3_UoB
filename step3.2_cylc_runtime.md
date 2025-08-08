@@ -97,6 +97,12 @@ The cycle point for the associated task (e.g. 20171009T0950).
 
 There are some other configurations about the submission of **jobs**, timeouts, and Retries.
 ## About the Runing of cylc
+As we can see, The suite.rc are more or less repetitive or redundant.  
+Cylc offers three ways of consolidating configurations to help improve the structure of a suite and avoid duplication.
+- [Families](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/configuration-consolidation/families.html) work best consolidating runtime configuration by collecting tasks into broad groups, e.g. groups of tasks which run on a particular machine or groups of tasks belonging to a particular system.
+- [Jinja2](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/configuration-consolidation/jinja2.html)  is good at configuring settings which apply to the entire suite rather than just a single task, as we can define variables then use them throughout the suite.
+- [Parameterised Tasks](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/configuration-consolidation/parameters.html) works best for describing tasks which are very similar but which have subtly different configurations (e.g. different arguments or environment variables).
+## About the Runing of cylc
 visit the links below For detailed informations about:
 - [relationship bettween tasks and jobs](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#tasks-and-jobs)
 - [how to run the suite](https://metomi.github.io/rose/2019.01.8/html/tutorial/cylc/runtime/introduction.html#running-a-suite)
