@@ -8,3 +8,5 @@ jinja2 include the other rc in suite.rc.proceed.
 {% include 'site/'+SITE+'.rc' %}
 
 {% include 'ozone-redistribution.rc' %}
+
+What is the meaning of inherit=None, otherone
