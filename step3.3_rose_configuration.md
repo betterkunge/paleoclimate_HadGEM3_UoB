@@ -95,7 +95,9 @@ values=Mercury, Venus, Earth, Mars, Jupiter,
 This example gives the `WORLD` variable a title and a list of allowed `values`.
 Try to reproduce the example on [Pratical about editting metadata](https://metomi.github.io/rose/doc/html/tutorial/rose/metadata.html) for a deeper understanding.    
 
-### 
+### [Rose Configuration Format](https://metomi.github.io/rose/doc/html/api/configuration/rose-configuration-format.html#rose-configuration-format)
+Further detail for the syntax of rose.
+Such as the usage of `!` and the setting of [optional-configuration for apps](https://metomi.github.io/rose/2.3.0/html/api/configuration/rose-configuration-format.html?utm_source=chatgpt.com#optional-configuration)
 
 
 ## Rose Glossary
