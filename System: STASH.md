@@ -1,2 +1,0 @@
-## [What is STASH](https://www.ukca.ac.uk/wiki/index.php/UKCA_%26_UMUI_Tutorial_3#What_is_STASH?)
-STASH is the Unified Model's storage handling and diagnostic system. It is designed to cope with the many different configurations that the UM can be used in, but still provide output in a consistent and standard way. A full technical description of STASH can be found in Unified Model Documentation Paper C4 which can be downloaded from the Met Office Collaboration Twiki (password required).
