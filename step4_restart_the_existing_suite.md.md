@@ -12,3 +12,34 @@ jinja2 include the other rc in suite.rc.proceed.
 What is the meaning of inherit=None, otherone
 
 use `sacctmgr list user withassoc where account=n02-ncas ` to check the user under the account n02-ncas
+
+
+use xconv to check the outputs of UM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
