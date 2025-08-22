@@ -1,11 +1,11 @@
 In this section, we try to repoduce the Eocene configuration from piControl configuration step by step.
 
-My start point is the piControl suite **u-cm430**, and the destination is the final product run from Seb (**u-di625**).
+My start point is the piControl suite **u-ch089**, and the destination is the final product run from Seb (**u-di625**).
 
 
 ## First step: Make sure the original suite can work with all standard boundary/initial conditions, before making it Eocene.
 ### Necessary sub-steps are shown below:
-1. copy the u-cm430 from rosie, to get a new suite (for me it is u-ds179).
+1. copy the u-ch089 from rosie, to get a new suite (for me it is u-ds203).
 2. Edit this suite by `rose config-edit u-cm430`:  
   -   at `suite conf >> Project accounting` set the `Account group for HPC tasks` as `'n02-ncas'`  
   -   at `suite conf >> Machine Options` set the `USERNAME` as `Your HPC USERNAME`
