@@ -27,7 +27,7 @@ My start point is the piControl suite **u-ch089**, and the destination is the fi
       module load cce/15.0.0
       module load atp
       ```
-6. confirm the restart/initial file of UM (`ainitial at um >> file >> namelist >> recon_technical`), CICE and NEMO (`NEMO start dump`, `NEMO icebergs start dump` and `CICE start dump` at `suite conf >> Run Initialisation and Cycling`) exist
+6. confirm the restart/initial file of UM (`ainitial at um >> file >> namelist >> reconfiguration and ancillary Control >> `), CICE and NEMO (`NEMO start dump`, `NEMO icebergs start dump` and `CICE start dump` at `suite conf >> Run Initialisation and Cycling >> General technical ooptions`) exist
 7. at `$suite_DIR/app/ocean_passive_tracers/rose-app.conf` set `meta` as `/home/n02/n02/ros/meta/ocean_passive_tracers`
 8. at `$suite_DIR/app/fcm_make_pp/rose-app.conf` set `install_host` as `remote.cfg`
 9. at `$suite_DIR/app/fcm_make_um/rose-app.conf`:  
@@ -40,5 +40,6 @@ My start point is the piControl suite **u-ch089**, and the destination is the fi
 ### some tips:
 - $UMDIR is set in `$suite_DIR/site/archer2.rc [[HPC]][[enviroment]]` 
 - the initial/restart file of Unified model can be set by `ainitial` under `um >> file >> namelist >> recon_technical`
-- use `fcm ls fcm:um.xm_br/pkg/Share` to show the 
+- use `fcm ls fcm:um.xm_br/pkg/Share` to show the
+- set `RECON` as true to initialize the run, as false to restart the run
 
