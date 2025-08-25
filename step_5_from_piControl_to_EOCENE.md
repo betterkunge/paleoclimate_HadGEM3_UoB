@@ -1,11 +1,11 @@
+# From piControl to Eocene
 In this section, we try to repoduce the Eocene configuration from piControl configuration step by step.
-
 My start point is the piControl suite **u-ch089**, and the destination is the final product run from Seb (**u-di625**).
+## First attempt **(possiblly outdated,start: final edit: 25/8/2025)
+Target: Make sure the original suite can work with all standard boundary/initial conditions, before making it Eocene .
 
-
-## First step: Make sure the original suite can work with all standard boundary/initial conditions, before making it Eocene.
 ### Necessary sub-steps are shown below:
-1. copy the u-ch089 from rosie, to get a new suite (for me it is u-ds203).
+1. copy the **u-ch089** from rosie, to get a new suite (for me it is **u-ds203**).
 2. Edit this suite by `rose config-edit u-cm430`:  
   -   at `suite conf >> Project accounting` set the `Account group for HPC tasks` as `'n02-ncas'`  
   -   at `suite conf >> Machine Options` set the `USERNAME` as `Your HPC USERNAME`
@@ -37,9 +37,30 @@ My start point is the piControl suite **u-ch089**, and the destination is the fi
 
 10. Run the rose suite by `rose suite-run` at the directory of the suite.
 
+Apart from the above steps, there is some other changes made in `u-ds203`. If you want to check all the changes made in u-ds203 compared to u-ch089. please check out these two suites from rosie, then compare them use the command line below:
+```
+diff -ur ~/roses/u-ds203 ~/roses/u-ch089
+```
+
+
 ### some tips:
 - $UMDIR is set in `$suite_DIR/site/archer2.rc [[HPC]][[enviroment]]` 
 - the initial/restart file of Unified model can be set by `ainitial` under `um >> file >> namelist >> recon_technical`
 - use `fcm ls fcm:um.xm_br/pkg/Share` to show the
 - set `RECON` as true to initialize the run, as false to restart the run
+
+### Results:
+After these modification, this suite successfully run by one model month, then it broke down. I haven't found the underlying reasons yet.
+
+
+## second attempt ()
+
+
+
+
+
+
+
+
+
 
