@@ -1,7 +1,7 @@
 # From piControl to Eocene
 In this section, we try to repoduce the Eocene configuration from piControl configuration step by step.
 My start point is the piControl suite **u-ch089**, and the destination is the final product run from Seb (**u-di625**).
-## First attempt **(possiblly outdated,start: final edit: 25/8/2025)
+## First attempt (possiblly outdated, start:21/8/2025; final edit: 25/8/2025)
 Target: Make sure the original suite can work with all standard boundary/initial conditions, before making it Eocene .
 
 ### Necessary sub-steps are shown below:
@@ -37,7 +37,7 @@ Target: Make sure the original suite can work with all standard boundary/initial
 
 10. Run the rose suite by `rose suite-run` at the directory of the suite.
 
-Apart from the above steps, there is some other changes made in `u-ds203`. If you want to check all the changes made in u-ds203 compared to u-ch089. please check out these two suites from rosie, then compare them use the command line below:
+Apart from the above steps, there is some other changes made in `u-ds203`. If you want to check all the changes made in u-ds203 compared to `u-ch089`. please check out these two suites from rosie, then compare them use the command line below:
 ```
 diff -ur ~/roses/u-ds203 ~/roses/u-ch089
 ```
@@ -48,12 +48,23 @@ diff -ur ~/roses/u-ds203 ~/roses/u-ch089
 - the initial/restart file of Unified model can be set by `ainitial` under `um >> file >> namelist >> recon_technical`
 - use `fcm ls fcm:um.xm_br/pkg/Share` to show the
 - set `RECON` as true to initialize the run, as false to restart the run
+- A tool for checking th e
+- The `sacct` command displays accounting data for all jobs that are run on ARCHER2.
+  - `sacct` can be used to find out about the resources used by a job. For example; Nodes used, Length of time the job ran for, etc. This information is useful for working out how much resource your runs are using. You should have some idea of the resource requirements for your runs and how that relates to the annual CU budget for your project. Information on resource requirements is also needed when applying for time on the HPC.
+  - 
 
 ### Results:
-After these modification, this suite successfully run by one model month, then it broke down. I haven't found the underlying reasons yet.
+After these modification, this suite successfully run by one model month, then it broke down. Furthermore, the outputs of this run seems to be  
+I haven't found the reason yet.
 
 
-## second attempt ()
+## second attempt (start:25/8/2025)
+I found the template I referenced (`u-ch089`) may be a old-fashion one. So I try to find a piControl suite with a later date, which can work with less modification. Fortunately, I quickly find the suite ———— `u-df570` (a recent suite owned by charliewilliams). I copied it, and successfully run it with little change. Additionally, there is no massive difference in configuration between the u-df570 and u-ds203 (my std piControl).
+My next step is to figure out the reasons causing the different proceeding.
+### sub-steps are shown below:
+1. Copy the **u-df570** from rosie, to get a new reference suite (for me it is **u-ds206**), and make some basic modification to run it successfully.
+2. Copy the old piControl suite **u-ds203**, get the a new piControl suite **u-ds213**.
+3. `diff -ur ~/roses/u-ds213 ~/roses/u-ch206 > diff_u-ds206_u-ds213`
 
 
 
