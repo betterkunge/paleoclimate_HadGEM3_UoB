@@ -51,7 +51,7 @@ diff -ur ~/roses/u-ds203 ~/roses/u-ch089
 - A tool for checking th e
 - The `sacct` command displays accounting data for all jobs that are run on ARCHER2.
   - `sacct` can be used to find out about the resources used by a job. For example; Nodes used, Length of time the job ran for, etc. This information is useful for working out how much resource your runs are using. You should have some idea of the resource requirements for your runs and how that relates to the annual CU budget for your project. Information on resource requirements is also needed when applying for time on the HPC.
-  - 
+- use `fcm commit` to commit the changes for a local suite to the repository.
 
 ### Results:
 After these modification, this suite successfully run by one model month, then it broke down. Furthermore, the outputs of this run seems to be  
@@ -63,7 +63,7 @@ I found the template I referenced (`u-ch089`) may be a old-fashion one. So I try
 My next step is to figure out the reasons causing the different proceeding.
 ### sub-steps are shown below:
 1. Copy the **u-df570** from rosie, to get a new reference suite (for me it is **u-ds206**), and make some basic modification to run it successfully.
-2. Copy the old piControl suite **u-ds203**, get the a new piControl suite **u-ds213**.
+2. Copy the old piControl suite **u-ds203**（use `fcm commit` to synchronize the local suite with the repository）, get the a new piControl suite **u-ds215**.
 3. `diff -ur ~/roses/u-ds213 ~/roses/u-ch206 > diff_u-ds206_u-ds213`
 
 
