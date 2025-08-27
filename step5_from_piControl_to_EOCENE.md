@@ -64,7 +64,17 @@ My next step is to figure out the reasons causing the different proceeding.
 ### sub-steps are shown below:
 1. Copy the **u-df570** from rosie, to get a new reference suite (for me it is **u-ds206**), and make some basic modification to run it successfully.
 2. Copy the old piControl suite **u-ds203**（use `fcm commit` to synchronize the local suite with the repository）, get the a new piControl suite **u-ds215**.
-3. `diff -ur ~/roses/u-ds213 ~/roses/u-ch206 > diff_u-ds206_u-ds213`
+3. `diff -ur ~/roses/u-ds213 ~/roses/u-ch206 > diff_u-ds206_u-ds213` to find the possible key sets.
+4. Through some attempts, we find a few key configuration to be modified:
+   - Firstly, except for sequence and dependences set at the [[scheduling]] insuite.rc, There is another element could stop the workflow. To prevent the fastest tasks in a suite from getting too far ahead of the slowest ones, the [`Runahead limiting`](https://cylc.github.io/cylc-doc/7.8.8/html/running-suites.html#runahead-limiting) is set in the cylc.   
+     The preferred runahead limiting mechanism restricts the number of consecutive active cycle points. The default value is three active cycle points; see [[scheduling] -> max active cycle points](https://cylc.github.io/cylc-doc/7.8.8/html/appendices/suiterc-config-ref.html#max-active-cycle-points). Alternatively the interval between the slowest and fastest tasks can be specified as hard limit; see [[scheduling] -> runahead limit](https://cylc.github.io/cylc-doc/7.8.8/html/appendices/suiterc-config-ref.html#runahead-limit).
+     Therefore, the failing of pp_transfer and post-processing can both stop the workflow. 
+   - at `suite conf >> Build and Run` set the `PP_transfer` as `false`. This setting should be temporary, because 
+   - (https://cylc.github.io/cylc-doc/7.8.8/html/running-suites.html#runahead-limiting)
+
+## Why the u-ds203 fail after processing for one model year?
+The wallclock in rose_suite.conf is the time limit for single task. 
+The wallclock is set to be 2. 
 
 
 
