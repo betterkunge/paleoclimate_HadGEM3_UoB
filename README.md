@@ -1,2 +1,2 @@
-# paleoclimate_UKESM_UoB
-Notes on running UKESM using resources from the University of Bristol
+# paleoclimate_HadGEM3_UoB
+Notes on running HadGEM3 using resources from the University of Bristol
