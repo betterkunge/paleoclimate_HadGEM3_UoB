@@ -69,12 +69,11 @@ My next step is to figure out the reasons causing the different proceeding.
    - Firstly, except for sequence and dependences set at the [[scheduling]] insuite.rc, There is another element could stop the workflow. To prevent the fastest tasks in a suite from getting too far ahead of the slowest ones, the [`Runahead limiting`](https://cylc.github.io/cylc-doc/7.8.8/html/running-suites.html#runahead-limiting) is set in the cylc.   
      The preferred runahead limiting mechanism restricts the number of consecutive active cycle points. The default value is three active cycle points; see [[scheduling] -> max active cycle points](https://cylc.github.io/cylc-doc/7.8.8/html/appendices/suiterc-config-ref.html#max-active-cycle-points). Alternatively the interval between the slowest and fastest tasks can be specified as hard limit; see [[scheduling] -> runahead limit](https://cylc.github.io/cylc-doc/7.8.8/html/appendices/suiterc-config-ref.html#runahead-limit).
      Therefore, the failing of pp_transfer and post-processing can both stop the workflow. 
-   - at `suite conf >> Build and Run` set the `PP_transfer` as `false`. This setting should be temporary, because 
-   - (https://cylc.github.io/cylc-doc/7.8.8/html/running-suites.html#runahead-limiting)
+   - at `suite conf >> Build and Run` set the `PP_transfer` as `false`. This setting should be temporary. We will open it once we have the login service of JASMIN for P2F project open.
+   - at `$path_of_rose_suite/site/archer2.rc[[POSTPROC_RESOURCE]]` revise the `load $UMDIR/modulefiles/postproc/2020.12.11` the pre-script as `module load $UMDIR/modulefiles/postproc/2020.12.11`
 
 ## Why the u-ds203 fail after processing for one model year?
-The wallclock in rose_suite.conf is the time limit for single task. 
-The wallclock is set to be 2. 
+the rolling of the cycle points are blocked by the limitation of cycle numbers in the task pool
 
 
 
