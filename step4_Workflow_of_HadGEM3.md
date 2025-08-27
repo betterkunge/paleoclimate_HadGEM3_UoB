@@ -5,11 +5,13 @@
 Every successfully operated simulation of HadGEM3 should be a well-organized cylc workflow combined with a bunch of interdependent tasks. These tasks are scheduled in sequence and grouped to archive different target.
 
 ### cycle point
-The time cycle point is the biggest unit of the HadGEM3 workflow. And the cycle point is usuualy regulated by the model time (set at rose_suite.conf[jinja2:suite.rc] by CALENDAR). The workflow of HadGEM3 will push forward with the 
+The time cycle point is the biggest unit of the HadGEM3 workflow. And the cycle point is usuualy regulated by the model time (set at rose_suite.conf[jinja2:suite.rc] by CALENDAR).  Visit **step3.1** to know more detail. The workflow of HadGEM3 will push forward with the cycle containing modeling and post-process of initial output. That means the tasks can always be repeatedly submited and running during a workflow.
+
+The frequency and the total number (the length of the modeling) of the cycle points can be set by `RESUB`, and `RUNLEN` at `suite conf >> Run Initialisation and cycle`, respectively.
 The key parameters to manage the frequency or the total number of the cycle points is `RESUB` and `RUNLEN`.
 
-### Tasks.
-
+### Tasks
+A cycle point of HadGEM3 typically contains the `couled` task and the `postproc` tasks of different components. At the initial cycle point, there will be additional tasks (such as `install_ancil` and `fcm_make_*`) to build the executable program.
 
 
 
