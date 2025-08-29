@@ -37,7 +37,7 @@ Target: Make sure the original suite can work with all standard boundary/initial
 
 10. Run the rose suite by `rose suite-run` at the directory of the suite.
 
-Apart from the above steps, there is some other changes made in `u-ds203`. If you want to check all the changes made in u-ds203 compared to `u-ch089`. please check out these two suites from rosie, then compare them use the command line below:
+Apart from the above steps, there are some other changes made in `u-ds203`. If you want to check all the changes made in u-ds203 compared to `u-ch089`. please check out these two suites from rosie, then compare them use the command line below:
 ```
 diff -ur ~/roses/u-ds203 ~/roses/u-ch089
 ```
@@ -71,6 +71,7 @@ My next step is to figure out the reasons causing the different proceeding.
      Therefore, the failing of pp_transfer and post-processing can both stop the workflow. 
    - at `suite conf >> Build and Run` set the `PP_transfer` as `false`. This setting should be temporary. We will open it once we have the login service of JASMIN for P2F project open.
    - at `$path_of_rose_suite/site/archer2.rc[[POSTPROC_RESOURCE]]` revise the `load $UMDIR/modulefiles/postproc/2020.12.11` the pre-script as `module load $UMDIR/modulefiles/postproc/2020.12.11`
+5. The interval bettween time cycles must be in line with the postproc seting. For example, if the interval bettween time cycles is one month, you should not set the  create_annual_mean as true.
 
 ## Why the u-ds203 fail after processing for one model year?
 the rolling of the cycle points are blocked by the limitation of cycle numbers in the task pool
