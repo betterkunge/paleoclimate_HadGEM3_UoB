@@ -80,7 +80,12 @@ visit:https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html
        ```
        This should return one of the login nodes, e.g. ln01. If it returns a message like [WARN] ln03: (ssh failed) then something has gone wrong with the ssh setup.
 ## Restarting your ssh agent after the reboot of archer2
-please visit: https://ncas-cms.github.io/um-training/ssh-tasks.html#restarting-agent
+Maybe just run the command below：
+```bash
+ssh-add ~/.ssh/id_rsa_archer2
+```
+Or visit the link below for a detailed guidance:    
+https://ncas-cms.github.io/um-training/ssh-tasks.html#restarting-agent
 
 
 
