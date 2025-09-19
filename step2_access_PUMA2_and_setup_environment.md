@@ -79,6 +79,8 @@ visit:https://ncas-cms.github.io/um-training/getting-setup-selfstudy.html
        puma2$ rose host-select archer2
        ```
        This should return one of the login nodes, e.g. ln01. If it returns a message like [WARN] ln03: (ssh failed) then something has gone wrong with the ssh setup.
+## Restarting your ssh agent after the reboot of archer2
+please visit: https://ncas-cms.github.io/um-training/ssh-tasks.html#restarting-agent
 
 
 
