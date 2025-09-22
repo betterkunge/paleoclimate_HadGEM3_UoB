@@ -27,3 +27,9 @@ Prior to UM9.0 the UM had its own gui, the **UMUI**, which was able to control t
 The link above supplied many useful documents about the configuration of UM, such as:
 - C02 Coupled Model Technical Overview
 - C04 Storage Handling and Diagnostic System (STASH)
+
+## [FCM](https://ncas-cms.github.io/um-training/fcm-tutorial.html#documenting-your-change)
+If you want to know more about the fcm sources used in the rose suite, for instance:`fcm_make –> env –> sources`. You will need this page.
+
+
+
