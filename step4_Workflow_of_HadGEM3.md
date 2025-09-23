@@ -67,8 +67,13 @@ All your revision commited for the suites or the fcm_resources can be viewed and
 
 ### Some useful command
 - fcm ls fcm:um.x-br/
+   List directory entries in the repository fcm:um.x-br
 - fcm branch-info
+  show the detail of present working copy
 - fcm branch-list  fcm:um.x
+  show your revision
+- fcm branch-delete
+  delete the working copy
   
 
 
