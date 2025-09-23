@@ -20,7 +20,7 @@ default archive directory in gc3.1:
 $ROSE_DATAC：cylc_run/{your suite}/share/cycle/
 
 default archive directory in gc5:
-$ROSE_DATAC：~/ARCHIVE/{your suite}
+$ROSE_DATAC：{your work directory}/ARCHIVE/{your suite}
 
 
 
