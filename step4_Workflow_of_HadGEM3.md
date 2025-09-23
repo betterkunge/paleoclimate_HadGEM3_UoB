@@ -31,5 +31,6 @@ The link above supplied many useful documents about the configuration of UM, suc
 ## [FCM](https://ncas-cms.github.io/um-training/fcm-tutorial.html#documenting-your-change)
 If you want to know more about the fcm sources used in the rose suite, for instance:`fcm_make –> env –> sources`. You will need this page.
 
+## [Solving Common UM Problems](https://ncas-cms.github.io/um-training/solving-problems.html)
 
 
