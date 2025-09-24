@@ -78,6 +78,7 @@ All your revision commited for the suites or the fcm_resources can be viewed and
 
 
 ## [Solving Common UM Problems](https://ncas-cms.github.io/um-training/solving-problems.html)
+### reload and re-trigger ###
 In the debugging processes, we always stop and re-run the suites over and over again. However, it is possible to reload the suite definition and then re-trigger the failed task without first stopping the running suite. To do this change to the suite directory:
 ```
 puma2$ cd ~/roses/<suitename>
@@ -88,6 +89,11 @@ puma2$ rose suite-run --reload
 ```
 Wait for this command to complete before continuing. Finally in the Cylc GUI right-click on the failed task and select `Trigger (run now)`. The `fcm_make_um` task will then submit again.
 
+### [Known Failure point](https://code.metoffice.gov.uk/trac/um/wiki/KnownUMFailurePoints) ###
+
+find some known Failure point of UM here.
+
+
 
 ## run the model more effectively ##
 
@@ -97,7 +103,14 @@ Set `ltimer` to `True`. Timer diagnostics outputs timing information and can be 
 Additionally, To output more information about the IU rates, switch on “IO timing” at `um –> namelist –> IO System settings –> General IO Control` .
 IO timing information provides a low level diagnostic of data transfer rates. It may be used as a tool to assist investigations in model run timings.
 
+### [Change the processor decomposition](https://ncas-cms.github.io/um-training/further-exercises-1.html#change-the-processor-decomposition) ###
 
+Navigate to `suite conf –> Domain Decomposition –> Atmosphere`.
+What is the current processor decomposition?
+Why is this not a good way to run the model?
+
+Running “under populated”, i.e. with fewer than the total cores per node, gives access to more memory per parallel task.
+"fully populated"
 
 ### [Change the model output logging behaviour](https://ncas-cms.github.io/um-training/further-exercises-1.html#change-the-model-output-logging-behaviour) ###
 
