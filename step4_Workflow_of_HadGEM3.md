@@ -78,8 +78,7 @@ All your revision commited for the suites or the fcm_resources can be viewed and
 
 
 ## [Solving Common UM Problems](https://ncas-cms.github.io/um-training/solving-problems.html)
-In the debugging processes, we always stop and re-run the suites over and over again.
-However, it is possible to reload the suite definition and then re-trigger the failed task without first stopping the running suite. To do this change to the suite directory:
+In the debugging processes, we always stop and re-run the suites over and over again. However, it is possible to reload the suite definition and then re-trigger the failed task without first stopping the running suite. To do this change to the suite directory:
 ```
 puma2$ cd ~/roses/<suitename>
 ```
