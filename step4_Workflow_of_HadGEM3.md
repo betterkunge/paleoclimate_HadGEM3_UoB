@@ -78,6 +78,31 @@ All your revision commited for the suites or the fcm_resources can be viewed and
 
 
 ## [Solving Common UM Problems](https://ncas-cms.github.io/um-training/solving-problems.html)
+In the debugging processes, we always stop and re-run the suites over and over again.
+However, it is possible to reload the suite definition and then re-trigger the failed task without first stopping the running suite. To do this change to the suite directory:
+```
+puma2$ cd ~/roses/<suitename>
+```
+We then reload the suite definition by running the following Rose command:
+```
+puma2$ rose suite-run --reload
+```
+Wait for this command to complete before continuing. Finally in the Cylc GUI right-click on the failed task and select `Trigger (run now)`. The `fcm_make_um` task will then submit again.
+
+
+## run the model more effectively ##
+
+Navigate to `um –> namelist –> Top Level Model Control –> Run Control and Time Settings`.
+Set `ltimer` to `True`. Timer diagnostics outputs timing information and can be very useful in diagnosing performance problems.
+
+Additionally, To output more information about the IU rates, switch on “IO timing” at `um –> namelist –> IO System settings –> General IO Control` .
+IO timing information provides a low level diagnostic of data transfer rates. It may be used as a tool to assist investigations in model run timings.
+
+
+
+### [Change the model output logging behaviour](https://ncas-cms.github.io/um-training/further-exercises-1.html#change-the-model-output-logging-behaviour) ###
+
+
 
 ## [Useful Hints & Tips for running with Rose/Cylc on the Archer2](https://cms.ncas.ac.uk/rose-cylc-hints/#passing-arguments-to-fcm_make)
 
