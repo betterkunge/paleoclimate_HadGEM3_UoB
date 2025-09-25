@@ -115,6 +115,9 @@ Running “under populated”, i.e. with fewer than the total cores per node, gi
 ### [Change the model output logging behaviour](https://ncas-cms.github.io/um-training/further-exercises-1.html#change-the-model-output-logging-behaviour) ###
 
 
+## [LRUN, CRUN, NRUN]（https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability）##
+[starting and restarting](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Restarting)
+
 
 ## [Useful Hints & Tips for running with Rose/Cylc on the Archer2](https://cms.ncas.ac.uk/rose-cylc-hints/#passing-arguments-to-fcm_make)
 
