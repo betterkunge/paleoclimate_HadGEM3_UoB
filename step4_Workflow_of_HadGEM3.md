@@ -91,7 +91,7 @@ Wait for this command to complete before continuing. Finally in the Cylc GUI rig
 
 ### [Known Failure point](https://code.metoffice.gov.uk/trac/um/wiki/KnownUMFailurePoints) ###
 
-find some known Failure point of UM here.
+find some known Failure point of UM by the link above.
 
 
 
