@@ -115,7 +115,7 @@ Running “under populated”, i.e. with fewer than the total cores per node, gi
 ### [Change the model output logging behaviour](https://ncas-cms.github.io/um-training/further-exercises-1.html#change-the-model-output-logging-behaviour) ###
 
 
-## [LRUN, CRUN, NRUN]（https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability）##
+## [LRUN, CRUN, NRUN](https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability) ##
 [starting and restarting](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Restarting)
 
 
