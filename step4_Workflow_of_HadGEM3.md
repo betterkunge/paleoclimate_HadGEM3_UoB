@@ -186,6 +186,8 @@ recon OFF astart=$RESTART_DUMP
 ### My Conclusion ###
 - If you want continue your run as similar to your old one as possible. You'd best switch on `BITCOMP_NRUN` and switch off `reconfiguration`. Note that `BITCOMP_NRUN` is not necessary, because it only works for the atmospheric component. But switching off `reconfiguration` is necessary if you don't want to make some potential reinitialization in your new suite.
 
+- [Know more about the reconfiguration](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_000.pdf)
+
 ## [Useful Hints & Tips for running with Rose/Cylc on the Archer2](https://cms.ncas.ac.uk/rose-cylc-hints/#passing-arguments-to-fcm_make)
 
 
