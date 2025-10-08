@@ -5,11 +5,12 @@ Through the above steps, we have successfully run this model for three years. Th
 $ROSE_DATAC： where to archive the outputs    
 default:cylc_run/{your suite}/share/cycle/   
 
-$ROSE_DATA： where to store the     
+$ROSE_DATA： where to store all the outputs
 default:/cylc-run/u-ds206/share/data    
 
 $DATAM: Directory path relative to $ROSE_DATA.    
-default:History_data    
+default:History_data
+
 where to set: Suite conf > Output Paths
 ## STASH 
 `postproc > Atmosphere > process_all_streams`
