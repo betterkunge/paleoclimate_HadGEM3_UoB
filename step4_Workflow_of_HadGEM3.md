@@ -116,8 +116,75 @@ Running “under populated”, i.e. with fewer than the total cores per node, gi
 
 
 ## [LRUN, CRUN, NRUN](https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability) ##
-[starting and restarting](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Restarting)
+<img width="888" height="608" alt="image" src="https://github.com/user-attachments/assets/51d708c5-e3e8-44aa-8011-c309e934f01b" />
+This shows running a model for 30 days. Three "modes" are run:
+- LRUN: The LRUN or "long" run, has a 10 day cycle length, so runs 3 cycles of 10 days.
+- CRUN: The CRUN or "continuation" run, has a 5 day cycle length, so runs 6 cycles of 10 days.
+- NRUN: The NRUN or "new" run also has a 5 day cycle length, so runs 6 cycles of 10 days.
+The key difference between the modes is whether each cycle continues the previous cycle, or is considered a new run. LRUN and CRUN **continue** the previous cycle, so the timestep number follows on. Each NRUN takes the state of the model at the end of the previous cycle as the initial conditions for a new run, starting at timestep 1.
 
+If you want to restart your run. There are two forms you can select depending on the issue you encountered.    
+If your job is currently running but has failed at some point. You may be able to find the problem and fix and then continue running from some point before the failure as a CRUN. In this case you should follow the section **Existing run**.     
+If you would like to start a model run from an output state of a previous run, you will need to setup the model to start from the output of the previous run as an NRUN. In this case you should follow the section **Starting from dumps/restart files**.     
+
+### [Existing run](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Restarting) ###
+
+For existing run, the restart file of UM is set by `CHECKPOINT_DUMP_IM`  in `$DATAM/<runid>.xhist` (usually located at `~/cylc-run/u-ds206/share/data/`). 
+The restart file of NEMO should be automatically set as the restart file with latest cycletime. 
+The restart file of CICE should be set in the `${CICEDATA}/ice.restart_file` (usually located at `~/cylc-run/u-ds206/share/data/CICEhist`) 
+
+#### [Useful rose suite-run Arguments](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Usefulrosesuite-runArguments) ####
+
+#### [Restarting Failing Suites](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#RestartingFailingSuites) ####
+
+#### [Restarting if the model blows up](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Restartingifthemodelblowsup) ####
+
+#### [Restarting from archived restarts](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Restartingfromarchivedrestarts) ####
+
+Some important notes:   
+- Point to the passive tracer restart: ocean_passive_tracers > env > Initialisation Settings        
+    - If you don't want the CFCs and Age tracer to be reset (normal case following a failure):
+        - Make sure that Init CFC-Age dump=false: suite conf > Build and Run
+        - Point Passive tracer restart file (TOP_START) to your restart file
+        - Set Restart file to initialize (TOP_TO_INIT) to a dummy string like "not-used" to make it clear that it has not been used.
+    - If you need to re-initialize the CFCs and/or the Age tracer:
+        - Make sure that Init CFC-Age dump=true: suite conf > Build and Run
+        - Point Restart file to initialize (TOP_TO_INIT) to the restart file to be re-initialized
+        - Set Passive tracer restart file (TOP_START) as ${ROSE_DATA}/${RUNID}o.restart_trc.nc
+- Switch off UM reconfiguration to prevent the atmosphere and land fields from being re-initialised: suite conf > Build and Run > Run reconfiguration -> false
+- Switch on bit-comparison options (see NRUN-bitcomp section below)
+
+Note: if NRUNning from January restart files, take care with seasonal and annual means:    
+
+- In standard HadGEM3 and UKESM1 suites prior to vn11.2, the first seasonal mean after a January NRUN will be MAM, and the first annual mean will begin after 11 months (Dec to Nov). Thus if using January restarts you should go back to the start of the year before the failure to avoid gaps in annual or seasonal means.
+- At vn11.2 and above the standard HadGEM3 and UKESM1 suites should be able to make use of the December monthly mean from the preceding failed run, and you can therefore start from the most recent January dumps available (unless you restart with rose suite-run --new, in which case you are in the same situation as pre-vn11.2).
+
+
+#### [Starting one run using restarts from another](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Startingonerunusingrestartsfromanother) ####
+
+If you need to change the year from that in the restarts (e.g. a CMIP6 historical run branching from the year 1950 of piControl needs to have a start date of 1850), then you must change the validity time in the UM restart to match the required start date (NEMO and CICE don't check the dates in their restart files). There is a mule script to carry this out, and it can be found by checking out from the MOCI repository using the command:
+```
+fcm export fcm:moci.x_tr/Utilities/lib/umdump_year.py
+```
+and running with
+```
+./umdump_year.py <infile> --year=1850
+```
+If you need to change month or day as well, copy this script and modify as appropriate. Please note that this script requires Mule to be available. Please see instructions above under [Mule Utilities](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#/Mule)
+
+If starting from ocean and atmosphere restarts which are not consistent with each other (i.e. they do not come from the same date of the same run), you need to set `BITCOMP_NRUN=false` in the top-level conf (see `NRUN-bitcomp section` below) to ensure that the ocean iceberg initialisation is performed (`ln_iceshelf_init_atmos=.true.`). Otherwise, the ocean and atmosphere prognostic values for the ice mass may be inconsistent, resulting in no iceberg calving or a huge pulse on the first coupling timestep, either of which will lead to errors in the ocean supply of freshwater.
+
+#### Bit comparison between NRUN and CRUN(https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#BitcomparisonbetweenNRUNandCRUN）####
+
+#### Troubleshooting(https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Troubleshooting) ####
+
+### [Restart as a new run](https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability#Startingfromdumpsrestartfiles) ###
+
+choose one of the following depending on whether the recon task is used
+recon ON ainitial=$RESTART_DUMP
+recon OFF astart=$RESTART_DUMP
+### My Conclusion ###
+- If you want continue your run as similar to your old one as possible. You'd best switch on `BITCOMP_NRUN` and switch off `reconfiguration`. Note that `BITCOMP_NRUN` is not necessary, because it only works for the atmospheric component. But switching off `reconfiguration` is necessary if you don't want to make some potential reinitialization in your new suite.
 
 ## [Useful Hints & Tips for running with Rose/Cylc on the Archer2](https://cms.ncas.ac.uk/rose-cylc-hints/#passing-arguments-to-fcm_make)
 
