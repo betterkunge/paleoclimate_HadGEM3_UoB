@@ -119,4 +119,7 @@ register a workflow suite before running it, not necessary.
 Scans and lists all currently running suites for the current user.
 - `cylc help all`
 lists all the available command of cylc
-
+- `cold start`
+A cold start is one in which the suite starts from the initial cycle point. This is the default behaviour of cylc run.
+- `warm start`
+In a cycling suite a warm start is one in which the suite starts from a cycle point after the initial cycle point. Tasks in cycles before this point as assumed to have succeeded.
