@@ -42,7 +42,7 @@ There are many other fields that can be output for a job. For more information s
 
 ## The Unified model
 [Possible the newest user guide for UM](https://code.metoffice.gov.uk/doc/um/latest/um-training/index.html)
-
+[Perfact Slides to learn the UM](https://cms.ncas.ac.uk/assets/docs/UM_Introduction_Presentations.pdf)
 The Met Office Unified Model (UM) is the name given to the suite of numerical modelling software developed and used at the Met Office for forecast prediction across a range of timescales; from weather forecasting to climate change.
 
 Prior to UM9.0 the UM had its own gui, the **UMUI**, which was able to control the configuration and submission of UM jobs. As of UM9.0 the UM is configured, built, jobs submitted and run by **Rose**. **Thus a prerequisite of this UM course is that trainees are familiar with Rose**. 
