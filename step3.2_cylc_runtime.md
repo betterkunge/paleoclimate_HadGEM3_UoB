@@ -123,3 +123,4 @@ lists all the available command of cylc
 A cold start is one in which the suite starts from the initial cycle point. This is the default behaviour of cylc run.
 - `warm start`
 In a cycling suite a warm start is one in which the suite starts from a cycle point after the initial cycle point. Tasks in cycles before this point as assumed to have succeeded.
+[A example to use cold and warm start](https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability#Atmospherejobs-forcingaCRUN)
