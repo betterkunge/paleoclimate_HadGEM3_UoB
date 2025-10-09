@@ -3,7 +3,8 @@ ARCHER2 is the UK’s national supercomputing service, designed to support high-
 
 # **Official version:**  
   just follow the link below:  
-  https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer
+  https://docs.archer2.ac.uk/quick-start/quickstart-users/#request-an-account-on-archer    
+  [ARCHER2 User Document](https://docs.archer2.ac.uk/)
 
 ***
 
