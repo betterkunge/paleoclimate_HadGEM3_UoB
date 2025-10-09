@@ -27,7 +27,7 @@ finish the [further exercise](https://ncas-cms.github.io/um-training/further-exe
   - [file formats](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_F03.pdf)
   - [Unified Model Output Post Processing](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
     - Marker files: ~/cylc-run/{your suite}/work/{cycle point}/coupled/*.done    
-      Rose UM suites which are set up to launch subjobs when particular output is produced may ’poll’ for the existence of a .done file which indicates that a file has been closed.
+      Rose UM suites which are set up to launch subjobs when particular output is produced may ’poll’ for the existence of a .done file which indicates that a file has been closed.
       The UM may be configured to produce a zero-length file with the filename of the original file plus an extension of `.done` when **closing a writable file**. For the same files any pre-existing `.done` file will be deleted whenever the UM opens the file.
       Switches:
       ```
@@ -45,6 +45,20 @@ finish the [further exercise](https://ncas-cms.github.io/um-training/further-exe
       --> IO System Settings
           --> General IO Control
               --> l_postp
+      ```
+    - MOOSE: Met Office Archive Storage System: long-term data archive system of Met Office
+    - Archiving and Deletion:
+      ```
+      postproc
+      --> Atmosphere
+          --> Archiving
+              --> archive_switch and del_switch
+      ```
+      Selecting these items will trigger the appropriate options to control which files are to be archived and deleted, and the corresponding frequencies and offsets. The app can also be run in a ‘debug’ mode, in which a log file will be produced indicating which files would be archived and/or deleted, **but without performing the actions**. This can be triggered using
+      ```
+      postproc
+      --> Atmosphere
+          --> debug
       ```
   - [STASH (Storage Handling and Diagnostic System)](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
 - NEMO outputs:
