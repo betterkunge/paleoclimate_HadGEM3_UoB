@@ -24,12 +24,29 @@ finish the [further exercise](https://ncas-cms.github.io/um-training/further-exe
 ### structure of UM Outputs
 
 - UM outputs:
-  - [file formats]()
-  - [STASH (Storage Handling and Diagnostic System)](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
+  - [file formats](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_F03.pdf)
   - [Unified Model Output Post Processing](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
-    - Marker files: ~/cylc-run/{your suite}/work/{cycle point}/coupled/*.arch
+    - Marker files: ~/cylc-run/{your suite}/work/{cycle point}/coupled/*.done    
+      Rose UM suites which are set up to launch subjobs when particular output is produced may ’poll’ for the existence of a .done file which indicates that a file has been closed.
+      The UM may be configured to produce a zero-length file with the filename of the original file plus an extension of `.done` when **closing a writable file**. For the same files any pre-existing `.done` file will be deleted whenever the UM opens the file.
+      Switches:
+      ```
+      namelist
+      --> IO System Settings
+          --> General IO Control
+              --> io_external_control
+      ```
+    - Marker files: ~/cylc-run/{your suite}/work/{cycle point}/coupled/*.arch    
       The UM may be configured to produce zero length files with a .done or .arch file extension to indicate when particular files are finished with. These markers may then be used by post processing tasks such as archiving, housekeeping, external meaning procedures, or to launch dependent tasks within a Rose suite.
       The UM may be configured to produce a zero length file with the original filename plus an extension of .arch in the run directory (typically $CYLC_TASK_WORK_DIR), which will indicate that the UM will not need the file again in future cycles.
+      Switches:
+      ```
+      namelist
+      --> IO System Settings
+          --> General IO Control
+              --> l_postp
+      ```
+  - [STASH (Storage Handling and Diagnostic System)](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
 - NEMO outputs:
 
 ## Debugging instance
