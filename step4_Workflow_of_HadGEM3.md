@@ -174,9 +174,9 @@ If you need to change month or day as well, copy this script and modify as appro
 
 If starting from ocean and atmosphere restarts which are not consistent with each other (i.e. they do not come from the same date of the same run), you need to set `BITCOMP_NRUN=false` in the top-level conf (see `NRUN-bitcomp section` below) to ensure that the ocean iceberg initialisation is performed (`ln_iceshelf_init_atmos=.true.`). Otherwise, the ocean and atmosphere prognostic values for the ice mass may be inconsistent, resulting in no iceberg calving or a huge pulse on the first coupling timestep, either of which will lead to errors in the ocean supply of freshwater.
 
-#### Bit comparison between NRUN and CRUN(https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#BitcomparisonbetweenNRUNandCRUN）####
+#### [Bit comparison between NRUN and CRUN](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#BitcomparisonbetweenNRUNandCRUN）####
 
-#### Troubleshooting(https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Troubleshooting) ####
+#### [Troubleshooting](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Troubleshooting) ####
 
 ### [Restart as a new run](https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability#Startingfromdumpsrestartfiles) ###
 
