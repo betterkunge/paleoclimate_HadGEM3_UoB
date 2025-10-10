@@ -64,6 +64,7 @@ finish the [further exercise](https://ncas-cms.github.io/um-training/further-exe
 - NEMO outputs:
 
 ## Debugging instance
+### number of fields exceeds reserved headers ###
 for a error like this: find the solution at: [https://cms-helpdesk.ncas.ac.uk/t/cycle-point-for-restarting-suites/476/19]
 ???????????????????????????????????????????????????????????????????????????????? 
 ???!!!???!!!???!!!???!!!???!!! ERROR ???!!!???!!!???!!!???!!!???!!! 
@@ -77,7 +78,15 @@ for a error like this: find the solution at: [https://cms-helpdesk.ncas.ac.uk/t/
 Where to find the outputs from specific processor:
 archer2:~/cylc-run/{your suite}/work/{the cycle}/atmos_main/pe_output/{your suite}.fort6.pe0000
 
+### Validity Time Mismatch ###
+```
+[ERROR]  Validity time mismatch in file /work/n02/n02/an25872/cylc-run/u-ds215/share/data/History_Data/ds215a.ps1850son to be archived
+        --> Expected [1850, 12, 1, 0, 0, 0] and got [1850, 9, 1]
+```
+See (https://cms-helpdesk.ncas.ac.uk/t/validity-time-mismatch/1773)
 
+The key logic here is making your climate meaning settings consistent with your STASH setting.
+check your stash stream by switching off `postproc > Atmosphere > process_all_streams` and `postproc > Atmosphere > process_all_streams`. Try to make them match with each other.
 
 
 
