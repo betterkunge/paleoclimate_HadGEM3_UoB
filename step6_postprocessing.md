@@ -1,20 +1,13 @@
 Through the above steps, we have successfully run this model for three years. The next issue to be focused on is how to set the correct post-processing.
+The outputs of different model components are controled by different setting.
+
+## STASH (Atmosphere) ##
+The STASH system (standing for Spatial and Temporal Averaging and Storage Handling) embraces those components of the UM responsible for generating versatile and optional model diagnostic ﬁelds for the whole range of Uniﬁed Model conﬁgurations and applications, so that output is in a standard format — the model ﬁeldsﬁle — and new diagnostics can be readily introduced. In order to meet these goals, STASH needs to know the data locations of all prospective data for output, and this is achieved by STASH also controlling the set-up of all data addressing within the model.
 
 
 
-$ROSE_DATAC： where to archive the outputs    
-default:cylc_run/{your suite}/share/cycle/   
-
-$ROSE_DATA： where to store all the outputs
-default:/cylc-run/u-ds206/share/data    
-
-$DATAM: Directory path relative to $ROSE_DATA.    
-default:History_data
-
-where to set: Suite conf > Output Paths
-## STASH 
 `postproc > Atmosphere > process_all_streams`
-find the `STASHmaster` file for the detail of STASH:
+find the `STASHmaster` file for the detail of STASH codes:
 The path of STASHmaster file: ~/cylc-run/{your suite}/app/um/file/STASHmaster
 
 finish the [further exercise](https://ncas-cms.github.io/um-training/further-exercises-1.html)
@@ -94,5 +87,25 @@ The Climate Data Dissemination System (CDDS) is a Python-based system that manag
 CDDS has recently been adapted to allow for the easy addition of both models and projects, provided that they follow the structure for CMIP6, i.e. via predefined activities (MIPS), source ids (models) and experiments. As of version 2.2.4 CDDS supports production of data for CMIP6 and for a Met Office internal project [GCModelDev](https://github.com/MetOffice/gcmodeldev-cmor-tables) where Met Office scientists are encouraged to request additional activities and experiments that can be used to support their science. Note that the GCModelDev project is not intended to prepare data for publication -- anyone wanting to publish data or prepare it for an external project is encouraged to contact the [CDDS team](mailto:cdds@metoffice.gov.uk) or start a discussion here.
 
 [The wiki](../../wiki) has further details and links
+
+## Some Basic paths ##
+
+### Where Data Are Stored ###
+
+$ROSE_DATAC： where to archive the outputs    
+default:cylc_run/{your suite}/share/cycle/   
+
+$ROSE_DATA： where to store all the outputs
+default:/cylc-run/u-ds206/share/data    
+
+$DATAM: Directory path relative to $ROSE_DATA.    
+default:History_data
+
+STASHC：STASH control ﬁle. This ﬁle is read during model initialisation at run time and converted into
+an internal collection of STASH related arrays, in particular a “STASHlist” array STlist that holds all the valid
+STASH requests.located at /cylc-run/u-ds206/work/18501201T0000Z/coupled
+
+
+where to set: Suite conf > Output Paths
 
 
