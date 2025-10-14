@@ -52,8 +52,8 @@ The link above supplied many useful documents about the configuration of UM, suc
 - C02 Coupled Model Technical Overview
 - C04 Storage Handling and Diagnostic System (STASH)
 
-## [FCM](https://ncas-cms.github.io/um-training/fcm-tutorial.html#documenting-your-change)
-If you want to know more about the fcm sources used in the rose suite, for instance:`fcm_make –> env –> sources`. You will need this page.
+## [FCM tutorial](https://ncas-cms.github.io/um-training/fcm-tutorial.html#fcm-tutorial)
+If you want to know more about the fcm sources used in the rose suite, for instance:`fcm_make –> env –> sources`, You will need the page above.
 
 Subversion (SVN) is a centralized [version control system](https://svnbook.red-bean.com/en/1.8/svn.basic.version-control-basics.html) that records changes to files and directories, enabling collaboration, revision tracking, and recovery of earlier versions. It relies on a central repository that all users connect to.
 
