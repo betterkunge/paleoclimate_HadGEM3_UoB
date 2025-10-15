@@ -10,7 +10,7 @@ The STASH system (standing for Spatial and Temporal Averaging and Storage Handli
 find the `STASHmaster` file for the detail of STASH codes:
 The path of STASHmaster file: ~/cylc-run/{your suite}/app/um/file/STASHmaster
 
-finish the [further exercise](https://ncas-cms.github.io/um-training/further-exercises-1.html)
+finish the [further exercise](https://ncas-cms.github.io/um-training/further-exercises-1.html) in UM praticals
 
 [Unified Model Output Post Processing](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
 
