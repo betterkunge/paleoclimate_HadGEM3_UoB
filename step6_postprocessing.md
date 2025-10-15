@@ -79,7 +79,7 @@ archer2:~/cylc-run/{your suite}/work/{the cycle}/atmos_main/pe_output/{your suit
 See (https://cms-helpdesk.ncas.ac.uk/t/validity-time-mismatch/1773)
 
 The key logic here is making your climate meaning settings consistent with your STASH setting.
-check your stash stream by switching off `postproc > Atmosphere > process_all_streams` and `postproc > Atmosphere > process_all_streams`. Try to make them match with each other.
+check your stash stream by switching off `postproc > Atmosphere > process_all_streams`. Try to make them match with each other.
 
 ## The Climate Data Dissemination System (CDDS) ##
 The Climate Data Dissemination System (CDDS) is a Python-based system that manages the reprocessing of HadGEM3 and UKESM1 climate model data into a standards compliant ([CMOR](https://cmor.llnl.gov/)) form suitable for publication and sharing. The primary driver behind CDDS was the CMIP6 project and CDDS was used, and is continuing to be used, to deliver a large amount of data to the [Centre for Environmental Data Archival (CEDA)](http://www.ceda.ac.uk) for publication to ESGF. 
