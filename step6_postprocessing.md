@@ -2,6 +2,7 @@ Through the above steps, we have successfully run this model for three years. Th
 The outputs of different model components are controled by different setting.
 
 ## STASH (Atmosphere) ##
+### The definition of STASH (taken from[STASH (Storage Handling and Diagnostic System)](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)) ###
 The STASH system (standing for Spatial and Temporal Averaging and Storage Handling) embraces those components of the UM responsible for generating versatile and optional model diagnostic ﬁelds for the whole range of Uniﬁed Model conﬁgurations and applications, so that output is in a standard format — the model ﬁeldsﬁle — and new diagnostics can be readily introduced. In order to meet these goals, STASH needs to know the data locations of all prospective data for output, and this is achieved by STASH also controlling the set-up of all data addressing within the model.
 
 
@@ -10,11 +11,11 @@ The STASH system (standing for Spatial and Temporal Averaging and Storage Handli
 find the `STASHmaster` file for the detail of STASH codes:
 The path of STASHmaster file: ~/cylc-run/{your suite}/app/um/file/STASHmaster
 
-finish the [further exercise](https://ncas-cms.github.io/um-training/further-exercises-1.html) in UM praticals
+finish the [further exercise](https://ncas-cms.github.io/um-training/further-exercises-1.html) about STASH in UM praticals
 
 [Unified Model Output Post Processing](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
 
-### structure of UM Outputs
+### structure of UM Outputs ###
 
 - UM outputs:
   - [file formats](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_F03.pdf)
@@ -56,9 +57,10 @@ finish the [further exercise](https://ncas-cms.github.io/um-training/further-exe
   - [STASH (Storage Handling and Diagnostic System)](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
 - NEMO outputs:
 
-## Debugging instance
+## Debugging instance ##
 ### number of fields exceeds reserved headers ###
-for a error like this: find the solution at: [https://cms-helpdesk.ncas.ac.uk/t/cycle-point-for-restarting-suites/476/19]
+for a error like this: 
+```
 ???????????????????????????????????????????????????????????????????????????????? 
 ???!!!???!!!???!!!???!!!???!!! ERROR ???!!!???!!!???!!!???!!!???!!! 
 ? Error code: 4 
@@ -67,29 +69,48 @@ for a error like this: find the solution at: [https://cms-helpdesk.ncas.ac.uk/t/
 ? Error from processor: 18 
 ? Error number: 17 
 ????????????????????????????????????????????????????????????????????????????????
-
+```
 Where to find the outputs from specific processor:
 archer2:~/cylc-run/{your suite}/work/{the cycle}/atmos_main/pe_output/{your suite}.fort6.pe0000
 
 What to do：
 Try to increase the reserved headers for the stream indicated in the error
 
+find the comcrete discussion at: [https://cms-helpdesk.ncas.ac.uk/t/cycle-point-for-restarting-suites/476/19]
+
 ### Validity Time Mismatch ###
 ```
 [ERROR]  Validity time mismatch in file /work/n02/n02/an25872/cylc-run/u-ds215/share/data/History_Data/ds215a.ps1850son to be archived
         --> Expected [1850, 12, 1, 0, 0, 0] and got [1850, 9, 1]
 ```
-See (https://cms-helpdesk.ncas.ac.uk/t/validity-time-mismatch/1773)
+
 
 The key logic here is making your climate meaning settings consistent with your STASH setting.
 check your stash stream by switching off `postproc > Atmosphere > process_all_streams`. Try to make them match with each other.
+
+Also see (https://cms-helpdesk.ncas.ac.uk/t/validity-time-mismatch/1773)
 
 ## The Climate Data Dissemination System (CDDS) ##
 The Climate Data Dissemination System (CDDS) is a Python-based system that manages the reprocessing of HadGEM3 and UKESM1 climate model data into a standards compliant ([CMOR](https://cmor.llnl.gov/)) form suitable for publication and sharing. The primary driver behind CDDS was the CMIP6 project and CDDS was used, and is continuing to be used, to deliver a large amount of data to the [Centre for Environmental Data Archival (CEDA)](http://www.ceda.ac.uk) for publication to ESGF. 
 
 CDDS has recently been adapted to allow for the easy addition of both models and projects, provided that they follow the structure for CMIP6, i.e. via predefined activities (MIPS), source ids (models) and experiments. As of version 2.2.4 CDDS supports production of data for CMIP6 and for a Met Office internal project [GCModelDev](https://github.com/MetOffice/gcmodeldev-cmor-tables) where Met Office scientists are encouraged to request additional activities and experiments that can be used to support their science. Note that the GCModelDev project is not intended to prepare data for publication -- anyone wanting to publish data or prepare it for an external project is encouraged to contact the [CDDS team](mailto:cdds@metoffice.gov.uk) or start a discussion here.
 
-[The wiki](../../wiki) has further details and links
+### Could not find metadata of UM name_list in rose editor ###
+When you click um in rose, you may get a error as below
+```
+Could not find metadata for {a directory}
+```
+This is caused by the default metadata directory shift into a new location:
+Change it at `um > meta`, by the following directory
+```
+/home/n02/n02/ros/meta/moci/CMIP6_rose-meta/um-atmos/HEAD
+```
+
+
+
+
+
+
 
 ## Some Basic paths ##
 
