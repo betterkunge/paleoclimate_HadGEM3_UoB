@@ -71,6 +71,9 @@ for a error like this: find the solution at: [https://cms-helpdesk.ncas.ac.uk/t/
 Where to find the outputs from specific processor:
 archer2:~/cylc-run/{your suite}/work/{the cycle}/atmos_main/pe_output/{your suite}.fort6.pe0000
 
+What to do：
+Try to increase the reserved headers for the stream indicated in the error
+
 ### Validity Time Mismatch ###
 ```
 [ERROR]  Validity time mismatch in file /work/n02/n02/an25872/cylc-run/u-ds215/share/data/History_Data/ds215a.ps1850son to be archived
