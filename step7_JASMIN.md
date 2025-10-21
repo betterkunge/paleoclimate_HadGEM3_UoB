@@ -15,4 +15,10 @@
 		- **ncas_generic, nerctools, ncas-sci-M and ncas-climate** (analysis/post-processing tools)  
 		- **nerctools** (gives access to NERC software tools.)
 
-### :
+### [Goup work space](https://help.jasmin.ac.uk/docs/short-term-project-storage/introduction-to-group-workspaces/)
+
+[Manage a GWS](https://help.jasmin.ac.uk/docs/short-term-project-storage/managing-a-gws/#authorising-access-to-the-gws)
+use `getent group | grep gws_past2future` to comfirm the list of users of GWS past2future.
+
+### [sci server](https://help.jasmin.ac.uk/docs/interactive-computing/sci-servers/)
+[How to connect to SCI servers](https://help.jasmin.ac.uk/docs/interactive-computing/login-servers/#connecting-to-a-sci-server-via-a-login-server)
