@@ -12,6 +12,8 @@ rose suite-run --local-install-only -> cylc install
 cylc run -> cylc vip   
 cylc gui -> cylc tui  
 
+use cylc config <flow-name> to generate a file like suite.rc.processed
+
 see command at：
 https://cylc.github.io/cylc-doc/stable/html/user-guide/cheat-sheet.html
 
