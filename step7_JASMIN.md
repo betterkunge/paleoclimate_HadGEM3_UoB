@@ -30,18 +30,20 @@ firstly, set a globus link as described below
 
 secondly
 to get through the task `fcm_make_pp_jasmin`.
-copy you ssh-key of JASMIN on the ARCHER2. 
+copy you ssh-key of JASMIN on the PUMA2. 
 and set a config file as in the page [login-servers](https://help.jasmin.ac.uk/docs/interactive-computing/login-servers/)
 my config set:
 ```
 Host login-*
   HostName %h.jasmin.ac.uk
   User an25872
+  IdentityFile ~/.ssh/id_ecdsa_jasmin
   ForwardAgent yes
 
 Host sci-vm-*
   HostName %h.jasmin.ac.uk
   ProxyJump login-02
+  IdentityFile ~/.ssh/id_ecdsa_jasmin
 ```
 
 
