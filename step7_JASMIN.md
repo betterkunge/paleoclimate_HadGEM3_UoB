@@ -22,3 +22,39 @@ use `getent group | grep gws_past2future` to comfirm the list of users of GWS pa
 
 ### [sci server](https://help.jasmin.ac.uk/docs/interactive-computing/sci-servers/)
 [How to connect to SCI servers](https://help.jasmin.ac.uk/docs/interactive-computing/login-servers/#connecting-to-a-sci-server-via-a-login-server)
+
+
+### Use Globus to automatically transfer data from ARCHER2 to JASMIN ###
+firstly, set a globus link as described below
+(https://cms.ncas.ac.uk/unified-model/pptransfer-globus/)
+
+secondly
+to get through the task `fcm_make_pp_jasmin`.
+copy you ssh-key of JASMIN on the ARCHER2. 
+and set a config file as in the page [login-servers](https://help.jasmin.ac.uk/docs/interactive-computing/login-servers/)
+my config set:
+```
+Host login-*
+  HostName %h.jasmin.ac.uk
+  User an25872
+  ForwardAgent yes
+
+Host sci-vm-*
+  HostName %h.jasmin.ac.uk
+  ProxyJump login-02
+```
+
+
+### DEBUG ###
+task:fcm_make_pp_jasmin in GC5
+```
+  1 [FAIL] sci-vm-01:cylc-run/u-ds758/run9/share/fcm_make_pp_jasmin: cannot create mirror ta    rget
+  2 [FAIL] ssh -n -oBatchMode=yes sci-vm-01 pwd # rc=255
+  3 [FAIL] ssh: Could not resolve hostname sci-vm-01: Name or service not known^M
+  4
+  5 [FAIL] fcm make -f /home4/home/n02-puma/an25872/cylc-run/u-ds758/run9/work/19780901T0000    Z/fcm_make_pp_jasmin/fcm-make.cfg -C /home/n02/n02/an25872/cylc-run/u-ds758/run9/share/f    cm_make_pp_jasmin -j 4 mirror.target=sci-vm-01:cylc-run/u-ds758/run9/share/fcm_make_pp_j    asmin 'mirror.prop{config-file.name}=2' # return-code=2
+  6 2025-10-30T16:59:21Z CRITICAL - failed/ERR
+```
+see [A error about ssh to svi machine of JASMIN](https://cms-helpdesk.ncas.ac.uk/t/could-not-resolve-hostname-jasmin/427/3)
+
+
