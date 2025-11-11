@@ -45,9 +45,7 @@ quobyte@sds.jc.rl.ac.uk/gws_ncas_generic        83T    80T   3.4T  96% /gws/nopw
 firstly, set a globus link as described below
 (https://cms.ncas.ac.uk/unified-model/pptransfer-globus/)
 
-secondly
-to get through the task `fcm_make_pp_jasmin`.
-copy you ssh-key of JASMIN on the PUMA2. 
+secondly, to get through the task `fcm_make_pp_jasmin`, copy you ssh-key of JASMIN to the PUMA2. 
 and set a config file as in the page [login-servers](https://help.jasmin.ac.uk/docs/interactive-computing/login-servers/)
 my config set:
 ```
