@@ -15,10 +15,27 @@
 		- **ncas_generic, nerctools, ncas-sci-M and ncas-climate** (analysis/post-processing tools)  
 		- **nerctools** (gives access to NERC software tools.)
 
+### [Home directory](https://help.jasmin.ac.uk/docs/getting-started/storage/?utm_source=chatgpt.com#home-directory)
+Every JASMIN user is allocated a HOME directory located at `/home/users/<username>`. This directory is available across most of the interactive and batch computing resources, including the JASMIN login and transfer servers.    
+Each home directory has a default quota of **100 GB**. Although you can’t directly check usage against your quota, you can find out the current size of your home directory as follows (the pdu command is a parallel variant of the du command, designed to work with the particular storage used for home directories on JASMIN).    
+```
+pdu -sh /home/users/<username>
+```
+
 ### [Goup work space](https://help.jasmin.ac.uk/docs/short-term-project-storage/introduction-to-group-workspaces/)
 
 [Manage a GWS](https://help.jasmin.ac.uk/docs/short-term-project-storage/managing-a-gws/#authorising-access-to-the-gws)
 use `getent group | grep gws_past2future` to comfirm the list of users of GWS past2future.
+
+[How to know the detail of a GWS](https://help.jasmin.ac.uk/docs/short-term-project-storage/managing-a-gws/#quota-resource-allocation-and-gws-lifetime)
+```
+pan_df -H /gws/pw/j07/workshop/
+Filesystem             				Size   Used  Avail Use% Mounted on
+panfs://panmanager03.jc.rl.ac.uk/gws/pw/j07     2.6T    16G   2.6T   1% /gws/pw/j07/workshop/
+df -H  /gws/nopw/j04/ncas_generic
+Filesystem                                      Size   Used  Avail Use% Mounted on
+quobyte@sds.jc.rl.ac.uk/gws_ncas_generic        83T    80T   3.4T  96% /gws/nopw/j04/ncas_generic
+```
 
 ### [sci server](https://help.jasmin.ac.uk/docs/interactive-computing/sci-servers/)
 [How to connect to SCI servers](https://help.jasmin.ac.uk/docs/interactive-computing/login-servers/#connecting-to-a-sci-server-via-a-login-server)
