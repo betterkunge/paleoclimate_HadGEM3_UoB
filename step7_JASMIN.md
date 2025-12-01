@@ -62,7 +62,7 @@ Host sci-vm-*
 ```
 
 [update to globus for pptransfer](https://code.metoffice.gov.uk/trac/roses-u/changeset/295453)
-
+https://code.metoffice.gov.uk/trac/roses-u/changeset/302861#file4
 ### DEBUG ###
 task:fcm_make_pp_jasmin in GC5
 ```
