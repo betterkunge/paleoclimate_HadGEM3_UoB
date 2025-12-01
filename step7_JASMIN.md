@@ -61,8 +61,8 @@ Host sci-vm-*
   IdentityFile ~/.ssh/id_ecdsa_jasmin
 ```
 
-[update to globus for pptransfer](https://code.metoffice.gov.uk/trac/roses-u/changeset/295453)
-https://code.metoffice.gov.uk/trac/roses-u/changeset/302861#file4
+[update to globus for pptransfer](https://code.metoffice.gov.uk/trac/roses-u/changeset/302861#file0)    
+
 ### DEBUG ###
 task:fcm_make_pp_jasmin in GC5
 ```
