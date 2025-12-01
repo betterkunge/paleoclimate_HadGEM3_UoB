@@ -7,8 +7,8 @@ The STASH system (standing for Spatial and Temporal Averaging and Storage Handli
 
 
 
-`postproc > Atmosphere > process_all_streams`
-find the `STASHmaster` file for the detail of STASH codes:
+`postproc > Atmosphere > process_all_streams`    
+find the `STASHmaster` file for the detail of STASH codes:     
 The path of STASHmaster file: ~/cylc-run/{your suite}/app/um/file/STASHmaster
 
 finish the [further exercise](https://ncas-cms.github.io/um-training/further-exercises-1.html) about STASH in UM praticals
