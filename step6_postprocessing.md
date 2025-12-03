@@ -55,7 +55,31 @@ finish the [further exercise](https://ncas-cms.github.io/um-training/further-exe
           --> debug
       ```
   - [STASH (Storage Handling and Diagnostic System)](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
+ 
+Note that the meaning of UM model is set at
+      ```
+      um
+      --> namelist
+          --> model input and output
+              --> dumping and meaning
+      ```
+In contrast, the meaning of NEMO and CICE is set at
+      ```
+      postproc
+      --> NEMO
+          --> Diagnostics
+              --> meaning
+      ```
+and
+      ```
+      postproc
+      --> CICE
+          --> Diagnostics
+              --> meaning
+      ```
+## NEMO and CICE ##
 - NEMO outputs:
+  - Some set in nemo_cice don't work (for example ***nn_write***). That may be caused by the IO server
 
 ## Debugging instance ##
 ### number of fields exceeds reserved headers ###
