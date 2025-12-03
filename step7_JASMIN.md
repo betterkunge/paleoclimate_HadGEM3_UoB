@@ -3,6 +3,8 @@
 -  we will transfer all model output from NEXCS/Monsoon to JASMIN (automatic post-processing that needs to be configured for each suite) to allow access/analysis/storage of large amounts of data
 -  a very neat feature is the ability to use the [[JASMIN Notebook Service]] to interactively analyse the data in a web browser
 
+
+## JASMIN basic procedure and Data transfer
 ### getting an account:
 
 - instructions to get started are conveniently listed at https://help.jasmin.ac.uk/article/189-get-started-with-jasmin, but I think not all steps are essential. I did the following:
@@ -75,4 +77,11 @@ task:fcm_make_pp_jasmin in GC5
 ```
 see [A error about ssh to svi machine of JASMIN](https://cms-helpdesk.ncas.ac.uk/t/could-not-resolve-hostname-jasmin/427/3)
 
+## Data Analysis on JASMIN
 
+### [Python on JASMIN](https://help.jasmin.ac.uk/docs/software-on-jasmin/conda-environments-and-python-virtual-environments/) 
+module load jaspy
+
+### link stash codes with variable name
+searcher
+https://reference.metoffice.gov.uk/um/stash/_<stash_code_you_want_to_know>
