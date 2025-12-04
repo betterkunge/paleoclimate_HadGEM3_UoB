@@ -56,6 +56,12 @@ finish the [further exercise](https://ncas-cms.github.io/um-training/further-exe
       ```
   - [STASH (Storage Handling and Diagnostic System)](https://code.metoffice.gov.uk/doc/um/vn13.9/papers/umdp_Y01.pdf)
 
+### link stash codes with variable name
+searcher
+
+download the STASH CODE TABLE here(https://reference.metoffice.gov.uk/um/release/_9.1)
+https://reference.metoffice.gov.uk/um/stash/_<stash_code_you_want_to_know>
+
 
 ### dumping and meaning ###
 Know more about the [dumping and meaning](https://code.metoffice.gov.uk/doc/um/latest/papers/umdp_C05.pdf)
