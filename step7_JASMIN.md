@@ -84,4 +84,6 @@ module load jaspy
 
 ### link stash codes with variable name
 searcher
+
+download the STASH CODE TABLE here(https://reference.metoffice.gov.uk/um/release/_9.1)
 https://reference.metoffice.gov.uk/um/stash/_<stash_code_you_want_to_know>
