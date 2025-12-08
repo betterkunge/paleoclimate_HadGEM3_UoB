@@ -1,3 +1,6 @@
+### GC5 Configuration overview
+[GC5-accessment](https://code.metoffice.gov.uk/trac/gmed/wiki/Assessment/GC5Assessment)
+
 ## A example suite
 u-da412
 u-ds758（copy）
