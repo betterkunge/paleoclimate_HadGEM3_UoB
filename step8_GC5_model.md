@@ -1,12 +1,17 @@
 ### GC5 Configuration overview
 [GC5-accessment](https://code.metoffice.gov.uk/trac/gmed/wiki/Assessment/GC5Assessment)
 
-## A example suite
-u-da412
-u-ds758（copy）
+[From GC3 turn to GC5 on PUMA2](https://cms.ncas.ac.uk/cylc8/)
+## Some Reference suites
+### ARCHER2
+high-resolution configuration(N216-ORCA025): u-da412（my copy: u-ds758）
 
-From GC3 turn to GC5 on PUMA2
-https://cms.ncas.ac.uk/cylc8/ 
+low-resolution configuration(N96 ORCA1):u-do332
+
+### MONSOON3
+low-resolution configuration(N96 ORCA1):u-du012
+
+
 
 
 
