@@ -9,7 +9,7 @@ high-resolution configuration(N216-ORCA025): u-da412（my copy: u-ds758）
 low-resolution configuration(N96 ORCA1):u-do332
 
 ### MONSOON3
-low-resolution configuration(N96 ORCA1):u-du012
+low-resolution configuration(N96 ORCA1):u-du021
 
 
 
