@@ -5,5 +5,7 @@ MONSOON3 is another HPC that supporting the PAST2FUTURE projects.
 [What is MONSOON](https://code.metoffice.gov.uk/doc/monsoon3/whatIsMonsoon.html)
 [The job scheduler (PBS;Portable Batch System) on monsoon](https://code.metoffice.gov.uk/doc/monsoon3/pbs.html#scheduling-work-with-pbs)
 
-start-point GC5 suites on MONSOON3:
-u-du021
+start-point GC5 suites on MONSOON3:    
+There is a new suites u-dv308 (GC5-central N96 ORCA1 UM13.8 piControl), which is hosted by EXC and EXD. Here we have a copy of u-dv308 (u-dv344), then revised its rose configuration with the site configuration of u-du021.
+
+Than we take the revised u-dv344 (GC5-central N96 ORCA1 UM13.8 piControl on monsoon3) as a start-point.
