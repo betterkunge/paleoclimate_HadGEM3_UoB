@@ -63,7 +63,8 @@ Subversion (SVN) is a centralized [version control system](https://svnbook.red-b
 Trac system is where you can find the revision from you and others. It supplied convinient tool to compare different suites and codes.
 All your revision commited for the suites or the fcm_resources can be viewed and found in the following two links.   
 [Trac system for um](https://code.metoffice.gov.uk/trac/um)    
-[Trac system for rose suites](https://code.metoffice.gov.uk/trac/roses-u/browser/)    
+[Trac system for rose suites](https://code.metoffice.gov.uk/trac/roses-u/browser/)   
+[Trac system for Met Office Coupling Infrastructure MOCI](https://code.metoffice.gov.uk/trac/moci/)
 
 ### Some useful command
 - fcm ls fcm:um.x-br/
