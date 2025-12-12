@@ -13,3 +13,4 @@ There is a new suites u-dv308 (GC5-central N96 ORCA1 UM13.8 piControl), which is
 Than we take the revised u-dv344 (GC5-central N96 ORCA1 UM13.8 piControl on monsoon3) as a start-point.
 
 Note that the calendar for u-dv344 is **gregorian**, it is different with that for the GC3 Eocene and LGM suites.
+For the gregorian calendar, all the time unit for reinitialisation of the outputstreams (reinit_unit) should be `Real Month(4)`. Or the outputstream with other units can not be generated.
