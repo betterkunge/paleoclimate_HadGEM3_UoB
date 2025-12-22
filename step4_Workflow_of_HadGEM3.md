@@ -161,7 +161,7 @@ Note: if NRUNning from January restart files, take care with seasonal and annual
 - At vn11.2 and above the standard HadGEM3 and UKESM1 suites should be able to make use of the December monthly mean from the preceding failed run, and you can therefore start from the most recent January dumps available (unless you restart with rose suite-run --new, in which case you are in the same situation as pre-vn11.2).
 
 
-#### [Starting one run using restarts from another(https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Startingonerunusingrestartsfromanother) 
+#### [Starting one run using restarts from another](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Startingonerunusingrestartsfromanother)
 
 If you need to change the year from that in the restarts (e.g. a CMIP6 historical run branching from the year 1950 of piControl needs to have a start date of 1850), then you must change the validity time in the UM restart to match the required start date (NEMO and CICE don't check the dates in their restart files). There is a mule script to carry this out, and it can be found by checking out from the MOCI repository using the command:
 ```
@@ -175,7 +175,7 @@ If you need to change month or day as well, copy this script and modify as appro
 
 If starting from ocean and atmosphere restarts which are not consistent with each other (i.e. they do not come from the same date of the same run), you need to set `BITCOMP_NRUN=false` in the top-level conf (see `NRUN-bitcomp section` below) to ensure that the ocean iceberg initialisation is performed (`ln_iceshelf_init_atmos=.true.`). Otherwise, the ocean and atmosphere prognostic values for the ice mass may be inconsistent, resulting in no iceberg calving or a huge pulse on the first coupling timestep, either of which will lead to errors in the ocean supply of freshwater.
 
-#### [Bit comparison between NRUN and CRUN](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#BitcomparisonbetweenNRUNandCRUN）####
+#### [Bit comparison between NRUN and CRUN](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#BitcomparisonbetweenNRUNandCRUN) ####
 
 #### [Troubleshooting](https://code.metoffice.gov.uk/trac/moci/wiki/tips_CRgeneral#Troubleshooting) ####
 
