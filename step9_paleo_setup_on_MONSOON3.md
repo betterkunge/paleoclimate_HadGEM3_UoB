@@ -90,6 +90,15 @@ eORCA1_runoff_GO6_icb.nc can be found on archer2 (/work/y07/shared/umshared/hadg
 ```
 This error also shows in WORK/coupled/ocean.output, which is the log of NEMO. However, in this case this explosion seems to stem from the CFL question in the UM. It disappear after we uplift the ATMOS_TIME_STEPS_PER_DAY from 48 to 72.
 
-### MOOSE    
+
+## From piControl to Eocene on MONSOON3    
+We copy the GC5-central piControl suite u-dv344 as a new suite u-dv769.    
+There are three parts of parameters demand being changed:
+- {path to your suite}/app/install_ancil/rose-app.conf
+- 
+
+
+
+## MOOSE    
 
 echo "moo projinfo --members --long project-ukesm" | qsub -q collabmass -j oe
