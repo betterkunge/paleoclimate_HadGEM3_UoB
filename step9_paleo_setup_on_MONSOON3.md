@@ -97,7 +97,7 @@ There are three parts of parameters demand being changed:
 - {path to your suite}/app/install_ancil/rose-app.conf
 - 
 ### ancil_list
-Based on the ancil_version scripts of Seb (), I try to setup the Eocene ancil_files in u-dv769. However, there is some significant differences in NEMO ancil set bettween the GC3 and GC5 configurations: 
+Based on the ancil_version scripts of Seb, I try to setup the Eocene ancil_files in u-dv769. However, there is some significant differences in NEMO ancil set bettween the GC3 and GC5 configurations: 
 #### Bathmetry and domain_CFG
 In GC3 the bathmetry is controlled by the ancil_file `BATHY_METER`, while in GC5 it is included in the `domain_cfg.nc`. We may need to build a Eocene `domain_cfg.nc` based on the bathymetry file, so we can make it consistency.    
 #### viscosity coefficient 
