@@ -123,8 +123,11 @@ Note that, the ozone scheme is not correctly set in our GC5 suite. Here we simpl
 ##### Soil roughness (new ancil file)
 There is one new ancil file in GC5 named soil_roughness
 ##### orog_radiation_parameters, orog_radiation_parameter, qrparm.orog_wavedrag, qrparm.ash (new ancil files)
-
-
+Some GC5 ancils relevant to the paramterization of the orography. None of them are supplied in GC3. Swich them off?
+##### qrclim.aerosols${LEVELS}.nc (new ancil files)
+These ancils seem to document fixed areosols by different vertical levels. We may have need to switch the relevant parameterizations off.
+##### hydrosheds qrparm.hydtop (new ancil files)
+This ancil file domucment the Mean Topographic Index and STANDARD DEVN IN TOPOGRAPHIC INDEX, which influence the average wetness tendency of a grid cell and the sub-grid heterogeneity of soil moisture, respectively. They may be used in the JULES.
 
 ### Switch off some scheme based on information about present-day bathymetry (Copy from guidance of Charlie):
 - Ocean ancils used by the standard model are listed below - first 4 are based on information about present-day bathymetry which can’t be replicated for the Eocene, so just switch off spatially varying parts of these schemes:
