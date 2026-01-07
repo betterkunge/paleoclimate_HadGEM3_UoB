@@ -114,7 +114,16 @@ Running “under populated”, i.e. with fewer than the total cores per node, gi
 "fully populated"
 
 ### [Change the model output logging behaviour](https://ncas-cms.github.io/um-training/further-exercises-1.html#change-the-model-output-logging-behaviour) ###
-
+For coupling run, it is very important which component is relative slower than the others. Therefore, sometimes we need detailed log from the coupler (OASIS3).     
+Change its log printing by `$NLOGPRT` at `${your suite}/app/coupled/file/namcouple`
+`
+ 75 ###########################################################################
+ 76  $NLOGPRT
+ 77 # Index of printing level in output file cplout: 0 = no printing
+ 78 #  1 = main routines and field names when treated, 30 = complete output
+ 79   0
+ 80  $END
+`
 
 ## [LRUN, CRUN, NRUN](https://code.metoffice.gov.uk/trac/moci/wiki/ModelRestartability) ##
 <img width="888" height="608" alt="image" src="https://github.com/user-attachments/assets/51d708c5-e3e8-44aa-8011-c309e934f01b" />
