@@ -110,7 +110,7 @@ In the GC5 model, except for the `runoff_1m_nomask.nc`, there is another file na
 
 #### UM
 ##### Chlorophyll qrclim.sea (potential element)
-This seems to be same as piControl in the GC3 suite. In GC5, it is updated. Not sure whether it will significantly impact the results.
+This is the same for piControl and eocene in the GC3 suite. In GC5, it is updated. Not sure whether it will significantly impact the results.
 ##### easyareosol (potential element)
 There is some ancil seems to be fixed impcat on radiation of the areosol. Will it influence the model? Where to set it?
 ##### river_number_um (new ancil file)
