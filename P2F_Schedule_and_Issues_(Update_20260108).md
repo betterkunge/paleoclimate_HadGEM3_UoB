@@ -15,7 +15,7 @@
 - (3) GC5 Eocene: The workflow to produce the ancillaries (in pariticular the missing files highlighted by Zikun)
     - The missing of ancillary files for GC5 Eocene.
       - **status**: waiting for Duncan's responce. Try to get the suites to generate the ancillary files.
-      - **to do**: Try running the model without these ancils.
+      - **to do**: Try running the model without these ancils, and making some paleotization based on the PI version.
 
 - (4) The "slab/nudged" ocean.
     -  find or develope a "slab/nudged" ocean component (Duncan)
