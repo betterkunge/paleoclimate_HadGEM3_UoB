@@ -129,7 +129,7 @@ These ancils seem to document fixed areosols by different vertical levels. We ma
 ##### hydrosheds qrparm.hydtop (new ancil files)
 This ancil file domucment the Mean Topographic Index and STANDARD DEVN IN TOPOGRAPHIC INDEX, which influence the average wetness tendency of a grid cell and the sub-grid heterogeneity of soil moisture, respectively. They may be used in the JULES.
 
-### Switch off some scheme based on information about present-day bathymetry (Copy from guidance of Charlie):
+### Switch off some scheme based on information about present-day bathymetry (Copy from [Idiot's guide to setting up GC3.1 Eocene suite on NEXCS v3.docx](https://uob-my.sharepoint.com/:w:/g/personal/wb19586_bristol_ac_uk/EcIwjv71mMFDgCKJqzcjB_oBGmRss2O40IxQPvVG6BF4xw?e=vgAmjN)):
 - Ocean ancils used by the standard model are listed below - first 4 are based on information about present-day bathymetry which can’t be replicated for the Eocene, so just switch off spatially varying parts of these schemes:
     - Tidal mixing (M2, K1 files): Switch it off tidal mixing scheme  (i.e. remove key_zdftmx in ~/roses/<SUITEID>/app/fcm_make_ocean/rose-app.conf)
     - Geothermal heating: Switch it off (i.e. set ln_trabbc= .false. in /home/d05/<USERNAME>/roses/<SUITEID>/app/nemo_cice/rose-app.conf)
