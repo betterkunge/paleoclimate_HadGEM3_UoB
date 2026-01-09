@@ -25,3 +25,4 @@
 - Andy's GC3 work 
 - Phoebe PhD thesis tuning HadCM3 + orbital ocean circulation: (Eocene):    
   https://spiral.imperial.ac.uk/entities/publication/694a0346-7cea-4acd-afec-31fb330c8f84
+- APRP analysis for GC3 EOCENE simulations.
