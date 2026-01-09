@@ -88,8 +88,14 @@ eORCA1_runoff_GO6_icb.nc can be found on archer2 (/work/y07/shared/umshared/hadg
  it :       3    |ssh|_max:  0.2122247217306716E+01 |U|_max:  0.1918040254011808E+01 S_min:  0.3686296032653921E+00 S_max:  0.4342016674559835E+02
  it :       4    |ssh|_max:                     NaN |U|_max:  0.0000000000000000E+00 S_min:  0.1797693134862316+309 S_max: -0.1797693134862316+309
 ```
-This error also shows in WORK/coupled/ocean.output, which is the log of NEMO. However, in this case this explosion seems to stem from the CFL question in the UM. It disappear after we uplift the ATMOS_TIME_STEPS_PER_DAY from 48 to 72.
+if you wanna check the output.abort_*.nc you may need to rebuild it. by the script `rebuild_nemo`. On MONSOON3 it is located at `/data/users/moci.mon/bin/REBUILD_NEMO/nemo_br_r10277_cpe2305_cce15`. For convenience, we copy it to the ~/bin/rebuild_nemo_zikun. A example for it: `rebuild_nemo_zikun output.abort 108`.
 
+This error also shows in WORK/coupled/ocean.output, which is the log of NEMO. However, in this case this explosion seems to stem from the CFL question in the UM. It disappear after we uplift the ATMOS_TIME_STEPS_PER_DAY from 48 to 72.   
+
+**note that** after increase ATMOS_TIME_STEPS_PER_DAY from 72 to 96 this error appear again. That may be caused by the influence of the restart file. The original ATMOS_TIME_STEPS_PER_DAY of u-do332, from which the restart file of our suite is taken from, is 72.
+
+
+#### Explosion of the atmospheric windspeed 
 
 ## From piControl to Eocene on MONSOON3    
 We copy the GC5-central piControl suite u-dv344 as a new suite u-dv769.    
