@@ -115,7 +115,9 @@ Running “under populated”, i.e. with fewer than the total cores per node, gi
 
 ### [Change the model output logging behaviour](https://ncas-cms.github.io/um-training/further-exercises-1.html#change-the-model-output-logging-behaviour) ###
 For coupling run, it is very important which component is relative slower than the others. Therefore, sometimes we need detailed log from the coupler (OASIS3).     
-Change its log printing by `$NLOGPRT` at `${your suite}/app/coupled/file/namcouple`
+- Switch on the item `l_oasis_timers` at `um > namelist > Coupling > Main coupling controls`.    
+
+- Change its log printing by `$NLOGPRT` at `${your suite}/app/coupled/file/namcouple`
 `
  75 ###########################################################################
  76  $NLOGPRT
