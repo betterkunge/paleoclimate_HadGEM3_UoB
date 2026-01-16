@@ -1,11 +1,12 @@
-### Issues on the schedule (update on 15/01/2026)
+### Issues on the schedule (update on 16/01/2026)
 - (1) GC3 PI (on MONSOON3):
     - look for a existing suite as the starting point
       - **status**: waiting for the response of MONSOON3 community Ext.
 - (2) GC3 LGM (on archer2):
     - The coupling weights are required so that we can run the LGM correctly.    
-      - **status**: waiting for the responce from Metoffice
-    - Zikun are trying to refine the domain decomposition and make it run more efficienctly.
+      - **status**: learning to generate the mesh file
+      - **to do**: Zikun are going to generate mesh and pass it to Duncan as soon as possible.
+    - Zikun is trying to refine the domain decomposition and make it run more efficienctly.
       - **status**: 1152 cores are used for running on ARCHER2. (Speed: six model years per day)
       - **to do**: output more information by uplift the level of `$NLOGPRT`
 - (3) GC5 PI:
@@ -14,13 +15,15 @@
       - **to do**: ask the Monsoon Community Ext Group for help.
     - model explosion after five months' running
       - **status**: waiting for the response of NCAS helpdesk and the update of MetOffice
+      - **to do**: Zikun is attempting to fix it
 - (4) GC5 Eocene: The workflow to produce the ancillaries (in pariticular the missing files highlighted by Zikun)
     - The missing of ancillary files for GC5 Eocene.
       - **status**: waiting for Duncan's responce. Try to get the suites to generate the ancillary files.
       - **to do**: Try running the model without these ancils, and making some paleotization based on the PI version.
 - (5) The "slab/nudged" ocean.
     -  find or develope a "slab/nudged" ocean component (Duncan)
-      -  **status**: waiting for the update of Duncan.
+      - **status**: A nudget method are found by Duncan.
+      - **to do**: do some tests on it.
 
 ### Done
 - (1) GC5 PI:
