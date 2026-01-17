@@ -10,12 +10,13 @@
       - **status**: 1152 cores are used for running on ARCHER2. (Speed: six model years per day)
       - **to do**: output more information by uplift the level of `$NLOGPRT`
 - (3) GC5 PI:
-    - The ozone post-processing bug
+    - (MONSOON3 GC5-central) model explosion after five months' running
+      - **done**: Zikun attempted to fix it (failed)
       - **status**: waiting for the response of NCAS helpdesk and the update of MetOffice
-      - **to do**: ask the Monsoon Community Ext Group for help.
-    - model explosion after five months' running
-      - **status**: waiting for the response of NCAS helpdesk and the update of MetOffice
-      - **to do**: Zikun is attempting to fix it
+     
+    - (ARCHER2 GC5-unknown version) try to restart u-do332
+      - **status**: in processing
+      - **to do**: use it as a start point of the Eocene suite setup.
 - (4) GC5 Eocene: The workflow to produce the ancillaries (in pariticular the missing files highlighted by Zikun)
     - The missing of ancillary files for GC5 Eocene.
       - **status**: waiting for Duncan's responce. Try to get the suites to generate the ancillary files.
