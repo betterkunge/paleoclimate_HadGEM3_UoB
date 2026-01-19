@@ -95,7 +95,12 @@ This error also shows in WORK/coupled/ocean.output, which is the log of NEMO. Ho
 **note that** after increase ATMOS_TIME_STEPS_PER_DAY from 72 to 96 this error appear again. That may be caused by the influence of the restart file. The original ATMOS_TIME_STEPS_PER_DAY of u-do332, from which the restart file of our suite is taken from, is 72.
 
 
-#### Explosion of the atmospheric windspeed 
+#### Explosion of the atmospheric component (high-level wind, potential temperature, )
+There is many [Known UM Failuere points](https://code.metoffice.gov.uk/trac/um/wiki/KnownUMFailurePoints). I nearly encountered all of them in the GC5-central setup on the MONSOON3. I made many attemption, like uplifting the high-level wind damping and change the UKCA scaling coefficient, but none of them work. The model broke down after 4 months' running.
+
+Finally, I suspect it may comes from the inconsistence bettween the ancillery files I used. Therefore, I compared my ancils list with one existing GC5-emergent suite (u-dv935). I found the `UN_ANCIL_DIR` set in the 'app/instal_ancil' is `$UMDIR/ancil/atmos/GC5` in my suite, but `$UM_INSTALL_DIR/atmos/GC5` in `u-dv935`. So I modify it as in the 'u-dv935', and it finally got through the timepoint!
+
+Therefore, I suggest that when a model breaks down after several months of simulation and shows abnormal short-term tendencies in certain physical variables, the configuration of the ancillary datasets should be carefully examined.
 
 ## From piControl to Eocene on MONSOON3    
 We copy the GC5-central piControl suite u-dv344 as a new suite u-dv769.    
