@@ -1,5 +1,5 @@
 ### Issues on the schedule (update on 16/01/2026)
-- (1) GC3 PI (on MONSOON3):
+- (1) GC3 PI (on MONSOON3; u-dw345):
     - look for a existing suite as the starting point
       - **status**: waiting for the response of MONSOON3 community Ext.
 - (2) GC3 LGM (on archer2):
