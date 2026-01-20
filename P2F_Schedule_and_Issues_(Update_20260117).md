@@ -10,15 +10,11 @@
     - Zikun is trying to refine the domain decomposition and make it run more efficienctly.
       - **status**: 1152 cores are used for running on ARCHER2. (Speed: six model years per day)
       - **to do**: output more information by uplift the level of `$NLOGPRT`
-- (3) GC5 PI:
-    - (MONSOON3 GC5-central) model explosion after five months' running
-      - **done**: Zikun attempted to fix it (failed)
-      - **status**: waiting for the response of NCAS helpdesk and the update of MetOffice
-     
+- (3) GC5 PI (u-dv344):
     - (ARCHER2 GC5-unknown version) try to restart u-do332
       - **status**: in processing
       - **to do**: use it as a start point of the Eocene suite setup.
-- (4) GC5 Eocene: The workflow to produce the ancillaries (in pariticular the missing files highlighted by Zikun)
+- (4) GC5 Eocene (u-dv769): The workflow to produce the ancillaries (in pariticular the missing files highlighted by Zikun)
     - The missing of ancillary files for GC5 Eocene.
       - **status**: waiting for Duncan's responce. Try to get the suites to generate the ancillary files.
       - **to do**: Try running the model without these ancils, and making some paleotization based on the PI version.
@@ -31,6 +27,8 @@
 - (1) GC5 PI:
     - The post-processing doesn't work
       - **status**: run successfully after switching off the postproc_integrity.
+    - (MONSOON3 GC5-central) model explosion after five months' running
+      - **status**: Zikun fixed it by renewing the ancils
 
 ### Optional (can be engaged in when blocked in P2F)
 #### HadGEM3-GC3 work
