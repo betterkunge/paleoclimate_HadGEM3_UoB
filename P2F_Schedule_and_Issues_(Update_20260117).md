@@ -4,7 +4,8 @@
       - **status**: waiting for the response of MONSOON3 community Ext.
 - (2) GC3 LGM (on archer2):
     - The coupling weights are required so that we can run the LGM correctly.    
-      - **status**: learning to generate the mesh file (a example for Eocene: /home/users/an25872/pmip4_vol2/users/ssteinig/gc31/ancils/Eocene/final_ancils_charlie_round2/ocean/bathy)
+      - **status**: learning to generate the mesh file (a example for Eocene: /home/users/an25872/pmip4_vol2/users/ssteinig/gc31/ancils/Eocene/final_ancils_charlie_round2/ocean/bathy；    
+      Kenji's resources for LGM:/home/users/an25872/pmip4_vol2/users/kizumi/HadGEM3_boundary_data/projects/peltier6g/N96_eORCA1_v2.2x)
       - **to do**: Zikun are going to generate mesh and pass it to Duncan as soon as possible.
     - Zikun is trying to refine the domain decomposition and make it run more efficienctly.
       - **status**: 1152 cores are used for running on ARCHER2. (Speed: six model years per day)
