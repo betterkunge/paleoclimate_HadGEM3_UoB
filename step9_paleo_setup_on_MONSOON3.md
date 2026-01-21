@@ -173,5 +173,18 @@ Note: Last two may not be necessary as first two should switch off fluxes and he
 
 
 ## MOOSE    
-
-echo "moo projinfo --members --long project-ukesm" | qsub -q collabmass -j oe
+**know more about moose**: echo "moo help" | qsub -q collabmass -j oe
+**Know your project**: echo "moo projinfo --members --long project-ukesm" | qsub -q collabmass -j oe     
+### DEBUG
+#### (TSSC_CONFLICT_WITH_EARLIER_COMMAND) command conflicts with another command.
+```
+[WARN]  moo.py: Moose Error: user-error (see Moose docs). (ReturnCode=2) File: /home/users/zikun.ren.ext/cylc-run/u-dv344/run18/share/data/History_Data/dv344a.da25020101_00
+[WARN]  [SUBPROCESS]: Command: moo put -f -vv /home/users/zikun.ren.ext/cylc-run/u-dv344/run18/share/data/History_Data/dv344a.da25030101_00 moose:crum/u-dv344/ada.file
+[SUBPROCESS]: Error = 2:
+        put command-id=2091026403 failed: (SSC_TASK_REJECTION) one or more tasks are rejected.
+  /home/users/zikun.ren.ext/cylc-run/u-dv344/run18/share/data/History_Data/dv344a.da25030101_00 -> moose:/crum/u-dv344/ada.file/dv344a.da25030101_00: (TSSC_CONFLICT_WITH_EARLIER_COMMAND) command conflicts with another command.
+  Conflicting command-ids: 2091023245,
+put: failed (2)
+```
+This error happens when the outrage of MONSOON3 happens during the archiving.
+echo "moo projinfo --members --long project-ukesm" | qsub -q collabmass -j oe     
