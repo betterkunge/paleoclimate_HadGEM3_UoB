@@ -187,4 +187,7 @@ Note: Last two may not be necessary as first two should switch off fluxes and he
 put: failed (2)
 ```
 This error happens when the outrage of MONSOON3 happens during the archiving.
-echo "moo projinfo --members --long project-ukesm" | qsub -q collabmass -j oe     
+  
+use `echo "moo si" | qsub -q collabmass -j oe` to check your transfer jobs.     
+If there is any running but blocked jobs, use `echo "moo kill <command-id>" | qsub -q collabmass -j oe` to kill them.
+`
