@@ -173,7 +173,7 @@ Note: Last two may not be necessary as first two should switch off fluxes and he
 
 
 ## MOOSE    
-**know more about moose**: echo "moo help" | qsub -q collabmass -j oe
+**know more about moose**: echo "moo help" | qsub -q collabmass -j oe    
 **Know your project**: echo "moo projinfo --members --long project-ukesm" | qsub -q collabmass -j oe     
 ### DEBUG
 #### (TSSC_CONFLICT_WITH_EARLIER_COMMAND) command conflicts with another command.
