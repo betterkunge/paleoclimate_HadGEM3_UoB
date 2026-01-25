@@ -102,6 +102,18 @@ Finally, I suspect it may comes from the inconsistence bettween the ancillery fi
 
 Therefore, I suggest that when a model breaks down after several months of simulation and shows abnormal short-term tendencies in certain physical variables, the configuration of the ancillary datasets should be carefully examined.
 
+#### Missing of ozone data since the start cycle of retrive_ozone
+```
+451             if missing_since_nrun:
+452                 raise OzoneMissingDataError(
+453                     '\n[ERROR] Required data since NRun not found on disk: '
+454                     'Year: {} Months: {}'.format(year, missing_since_nrun)
+455                 )
+456         else:
+
+```
+resoleve this by setting the start time of `retrieve_ozone` and 'redistribution_ozone' in `ozone-redistribution.rc` in line with the basis time (startstamp).
+
 ## From piControl to Eocene on MONSOON3    
 We copy the GC5-central piControl suite u-dv344 as a new suite u-dv769.    
 There are three parts of parameters demand being changed:
