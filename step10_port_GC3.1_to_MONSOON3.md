@@ -1,4 +1,4 @@
-##PI
+## PI
 From u-di622 (ARCHER2) to u-dw345 (MONSOON3)
 Referece suite:u-dv344
 ### DEBUG
@@ -17,4 +17,4 @@ To fix this Error, I transformed all the configuration of postproc2.4 into postp
 [LINK_DRIVERS] attemting to run with command: mpiexec --cpu-bind=depth -n 384 -d 2 ./atmos.exe : -n 128 -d 1 ./ocean.exe : -n 6 -d 1 ./xios.exe 
 [DRIVER_TEST_SCRIPT] Drivers successfully linked
 ```
-coupled task blocked with above job.out. To fix this issue, open the REFIGURATION to get further informaitonls
+delete the `--cpu-bind=depth` .. in the UM_RESOURCE at {site}.rc
