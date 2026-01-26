@@ -222,7 +222,11 @@ Note: Last two may not be necessary as first two should switch off fluxes and he
 
 
 
-
+## GCOM
+```
+fcm co fcm:gcom.xm_br/dev/andymalcolm/vn7.5_meto_ex1a_configs ./vn7.5
+```
+The guidance to instal GCOM [LINK](https://code.metoffice.gov.uk/trac/gcom/wiki/GCOMinstall_MetOffice?revision=11)
 
 ## MOOSE    
 **know more about moose**: echo "moo help" | qsub -q collabmass -j oe    
