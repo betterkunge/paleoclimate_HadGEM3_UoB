@@ -114,6 +114,46 @@ Therefore, I suggest that when a model breaks down after several months of simul
 ```
 resoleve this by setting the start time of `retrieve_ozone` and 'redistribution_ozone' in `ozone-redistribution.rc` in line with the basis time (startstamp).
 
+###  Failed extracting ozone fields
+`job.out` of `postproc_transform`:
+```
+[INFO]  Running do_ozone for atmos...
+[INFO]  No files marked .arch
+[INFO]  Attempting to extract ozone fields [253, 30453] from
+        dv344a.pz2500dec
+
+```
+`job.err` of `postproc_transform`:
+```
+[WARN]  No requested fields found in source file:
+        /home/users/zikun.ren.ext/cylc-run/u-dv344/run21/share/data/History_Data/dv344a.pz2500dec
+[FAIL]  Failed extracting ozone fields
+[FAIL] Terminating PostProc...
+[FAIL] main_pp.py # return-code=1
+```
+My attemption:     
+1. find the source of the error information: `./share/fcm_make_pp/build/bin/atmos.py`
+```
+602             icode = transform.extract_to_pp(
+603                 [os.path.join(self.share, s) for s in source_files],
+604                 fields, output_stream, data_freq='1m'
+605                 )
+606             if icode == 0:
+607                 utils.log_msg('Successfully extracted ozone fields')
+608             else:
+609                 # Fail immediately - we don't want source file(s)
+610                 # subsequently processed and archived
+611                 utils.log_msg('Failed extracting ozone fields',
+612                               level='FAIL')
+613
+614             output_files = housekeeping.get_marked_files(
+615                 self.share, self.ff_match(output_stream), ''
+616             )
+```
+2. Learn more about the method `transform.extract_to_pp()`
+   After some investigation, we found the outputstream
+
+
 ## From piControl to Eocene on MONSOON3    
 We copy the GC5-central piControl suite u-dv344 as a new suite u-dv769.    
 There are three parts of parameters demand being changed:
