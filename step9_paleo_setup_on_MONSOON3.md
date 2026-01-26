@@ -112,7 +112,7 @@ Therefore, I suggest that when a model breaks down after several months of simul
 456         else:
 
 ```
-resoleve this by setting the start time of `retrieve_ozone` and 'redistribution_ozone' in `ozone-redistribution.rc` in line with the basis time (startstamp).
+For Ozone scheme, the basis timestamp must be the {start_year}0101.
 
 ###  Failed extracting ozone fields
 `job.out` of `postproc_transform`:
