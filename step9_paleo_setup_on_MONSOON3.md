@@ -225,7 +225,9 @@ Note: Last two may not be necessary as first two should switch off fluxes and he
 ## GCOM
 ```
 fcm co fcm:gcom.xm_br/dev/andymalcolm/vn7.5_meto_ex1a_configs ./vn7.5
+fcm co fcm:gcom.x_tr $HEAD gcom_tr
 ```
+combine the two GCOM repositories, and run the modified suite on the cazccylc1 node.
 The guidance to instal GCOM [LINK](https://code.metoffice.gov.uk/trac/gcom/wiki/GCOMinstall_MetOffice?revision=11)
 
 ## MOOSE    
