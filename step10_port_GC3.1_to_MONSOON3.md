@@ -10,6 +10,11 @@ Referece suite:u-dv344
 ```
 To fix this Error, I transformed all the configuration of postproc2.4 into postproc2.5.
 #### deadlock with no error information
+
+Each components need to be consistent:
+GCOM, MPI, module list(GC3->GC5), CYLC, UM source codes.
+
+
 ```
 [SUBPROCESS OUTPUT] nn_it000=1,
 [SUBPROCESS OUTPUT] nn_itend=1920,
