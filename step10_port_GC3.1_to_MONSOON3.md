@@ -21,5 +21,5 @@ delete the `--cpu-bind=depth` .. in the UM_RESOURCE at {site}.rc
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 check the fcm_make2_drivers
-
+examine `~/cylc-run/u-dw345/share/fcm_make_drivers/build/bin`
 
