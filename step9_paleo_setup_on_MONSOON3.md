@@ -102,35 +102,29 @@ Finally, I suspect it may comes from the inconsistence bettween the ancillery fi
 
 Therefore, I suggest that when a model breaks down after several months of simulation and shows abnormal short-term tendencies in certain physical variables, the configuration of the ancillary datasets should be carefully examined.
 
-#### Missing of ozone data since the start cycle of retrive_ozone
-```
-451             if missing_since_nrun:
-452                 raise OzoneMissingDataError(
-453                     '\n[ERROR] Required data since NRun not found on disk: '
-454                     'Year: {} Months: {}'.format(year, missing_since_nrun)
-455                 )
-456         else:
+#### Errors happened in Ozone scheme
 
-```
-For Ozone scheme, the basis timestamp must be the {start_year}0101.
+##### My investigation on the ozone scheme
+The Ozone scheme is work with a interaction between the UM and the Ozone tasks.     
+- On the ozone tasks (retrieve_ozone, redistribute_ozone):
+On January of each year, The `retrieve_ozone` will setup the files (orogrophy, DENSITY*R*R AFTER TIMESTEP 00253, the tropopause_altitude 30453) needed by the `ozone_distribution`. A successsful `retrieve_ozone` demands the ancillary files of the past one or two years. The `retrieve_ozone` will proceed a python script (`retrieve_ozone_data.py`), which is claimed to be downloaded from FCM in the rose-suite.conf. For the start time stamp (must be {start_year}0101), the `retrieve_ozone_data.py` will not require the 'redistribute_ozone'.    
 
-###  Failed extracting ozone fields
-`job.out` of `postproc_transform`:
-```
-[INFO]  Running do_ozone for atmos...
-[INFO]  No files marked .arch
-[INFO]  Attempting to extract ozone fields [253, 30453] from
-        dv344a.pz2500dec
+In the `redistribute_ozone` task, The python script `src/contrib/redistribute_ozone.py ` downloaded from FCM will be used to calculate the ozone_distribution of the nextyear. Note that the python scripy is built by the task `contrib_package_build`.    
+- On the UM
+There are two ouput stream (pz, po). Note that, the content of pz is set by the switch `suite conf > Ozone Restribution > Redistribuition ozone`. In the GUI of `Rose config-edit`, the stash request of pz will show to be empty. But after installation of suite, the UM Optional key (ozone) will add two variables (DENSITY*R*R AFTER TIMESTEP 00253, the tropopause_altitude 30453) in it. In the `postproc` task (function do_ozone in the script `share/fcm_make_pp/build/bin/atmos.py`), the two variables will be extracted to the `po` outputstream. And `po` will be the source outputstream to generate the OZONE ancil for the next year.
 
-```
-`job.err` of `postproc_transform`:
-```
-[WARN]  No requested fields found in source file:
-        /home/users/zikun.ren.ext/cylc-run/u-dv344/run21/share/data/History_Data/dv344a.pz2500dec
-[FAIL]  Failed extracting ozone fields
-[FAIL] Terminating PostProc...
-[FAIL] main_pp.py # return-code=1
-```
+
+
+
+#####  On the first time stamp, Required data since NRun not found on disk: Year: 2501 Months: 1,2,3,4,5,6,7,8,9,10,11,12
+
+For Ozone scheme, the basis timestamp must be the {start_year}0101, so that the ozone initialization can proceed correctly.
+
+
+#####  On the second year, Required data since NRun not found on disk: Year: 2501 Months: 1,2,3,5,6,8,9,11  
+
+On the first month of the second year, the outputs of `po` outputstream is incomplete with a few monthes lacked.
+
 My attemption:     
 1. find the source of the error information: `./share/fcm_make_pp/build/bin/atmos.py`
 ```
@@ -150,8 +144,24 @@ My attemption:
 615                 self.share, self.ff_match(output_stream), ''
 616             )
 ```
-2. Learn more about the method `transform.extract_to_pp()`
-   After some investigation, we found the outputstream
+2. Learn more about the method `transform.extract_to_pp()` which is a function in the `./share/fcm_make_pp/build/bin/atmos_transform.py`
+```
+266     outfile = prefix + outstream + current_year + '.pp'
+267     tmpfile = None
+268     if len(sources) < 1:
+269         utils.log_msg('No source files found for field extraction\n\t',
+270                       level='WARN')
+271     elif MULE_AVAIL:
+272         tmpfile = _extract_to_pp_mule(sources, fields, outfile, data_freq)
+273     elif IRIS_AVAIL:
+274         tmpfile = _extract_to_pp_iris(sources, fields, outfile, data_freq)
+275     else:
+276         utils.log_msg(
+277             'Either Mule or IRIS required to extract fields to PP format',
+278             level='WARN'
+
+```
+As we can see there are two option for extract, and MULE is the prior one. If we lift the check of IRIS_AVAIL ahead of MULE. All the variables will be correctly extracted.
 
 
 ## From piControl to Eocene on MONSOON3    
