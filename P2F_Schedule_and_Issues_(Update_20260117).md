@@ -1,7 +1,8 @@
 ### Issues on the schedule (update on 16/01/2026)
 - (1) GC3 PI (on MONSOON3; u-dw345):
-    - look for a existing suite as the starting point
-      - **status**: waiting for the response of MONSOON3 community Ext.
+    - Dead Lock with MPI and `Error message: ADDR_CHK : Mis-match in start addresses` with one core UM
+      - **status**: waiting for the response of NCAS; 
+                  try to rebuild and reconfigure all dependent modules directly on MONSOON3.
 - (2) GC3 LGM (on archer2):
     - The coupling weights are required so that we can run the LGM correctly.    
       - **status**: learning to generate the mesh file (a example for Eocene: /home/users/an25872/pmip4_vol2/users/ssteinig/gc31/ancils/Eocene/final_ancils_charlie_round2/ocean/bathy；    
@@ -17,7 +18,7 @@
 - (4) GC5 Eocene (u-dv769): The workflow to produce the ancillaries (in pariticular the missing files highlighted by Zikun)
     - The missing of ancillary files for GC5 Eocene.
       - **status**: waiting for Duncan's responce. Try to get the suites to generate the ancillary files.
-      - **to do**: Try running the model without these ancils, and making some paleotization based on the PI version.
+      - **to do**: try to generate the domain_cfg.nc by the NEMO tools.
 - (5) The "slab/nudged" ocean.
     -  find or develope a "slab/nudged" ocean component (Duncan)
       - **status**: A nudget method are found by Duncan.
