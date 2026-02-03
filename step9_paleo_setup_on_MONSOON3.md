@@ -189,6 +189,50 @@ My attemption:
                  module load cray-netcdf-hdf5parallel
 ```
 4. cd tools; ./maketools -m X86_ARCHER2-Cray -n DOMAINcfg
+5. vim `namelist_cfg`, use the parameters as below:
+```
+!-----------------------------------------------------------------------
+&namcfg        !   parameters of the configuration
+!-----------------------------------------------------------------------
+   !
+   ln_e3_dep   = .true.    ! =T : e3=dk[depth] in discret sens.
+   !                       !      ===>>> will become the only possibility in v4.0
+   !                       ! =F : e3 analytical derivative of depth function
+   !                       !      only there for backward compatibility test with v3.6
+      !                      ! if ln_e3_dep = T
+      ln_dept_mid = .false.  ! =T : set T points in the middle of cells
+   !                       !
+   cp_cfg      =  "orca1"  !  name of the configuration
+   jp_cfg      =       1   !  resolution of the configuration
+   jpidta      =     362   !  1st lateral dimension ( >= jpi )
+   jpjdta      =     332   !  2nd    "         "    ( >= jpj )
+   jpkdta      =      75   !  number of levels      ( >= jpk )
+   Ni0glo      =     362   !  1st dimension of global domain --> i =jpidta
+   Nj0glo      =     332   !  2nd    -                  -    --> j  =jpjdta
+   jpkglo      =      75
+   jperio      =       4   !  lateral cond. type (between 0 and 6)
+   ln_domclo = .true.      ! computation of closed sea masks (see namclo)
+```
+6. `sbatch` the `sub` script shown as below:
+```
+#!/bin/bash -l
+#
+#SBATCH --job-name=DOMAINcfg_test
+#SBATCH --output=logs/DOMAINcfg_%j.out
+#SBATCH --error=logs/DOMAINcfg_%j.err
+#SBATCH --time=60:00
+#SBATCH --chdir=/work/n02/n02/an25872/NEMO_SRC/nemo-main/tools/DOMAINcfg
+#SBATCH --partition=serial
+#SBATCH --qos=serial
+#SBATCH --account=n02-P2F
+#SBATCH --exclusive=mcs
+#SBATCH --ntasks=1
+#SBATCH --mem=100G
+#SBATCH --export=NONE
+
+srun -n 1 ./make_domain_cfg.exe
+```
+7. You got the domain_cfg.nc and mesh_mask.
 
 ##### viscosity coefficient (configuration change)
 In GC3 the viscosity coefficient in tropical area is modified by the `AHMCOEF` file, while in GC5 it is turned into a 3d distribution documented in `eddy_viscosity_3D.nc`. Therefore a new script should be build to generate the 3D distribution of viscosity which is adapted to Eocene mask.    
