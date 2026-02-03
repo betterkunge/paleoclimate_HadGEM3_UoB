@@ -1,4 +1,4 @@
-### Issues on the schedule (update on 16/01/2026)
+### Issues on the schedule (update on 03/02/2026)
 - (1) GC3 PI (on MONSOON3; u-dw345):
     - Dead Lock with MPI and `Error message: ADDR_CHK : Mis-match in start addresses` with one core UM
       - **status**: waiting for the response of NCAS; 
