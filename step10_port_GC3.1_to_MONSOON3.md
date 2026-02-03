@@ -24,7 +24,10 @@ GCOM, MPI, module list(GC3->GC5), CYLC, UM source codes.
 ```
 delete the `--cpu-bind=depth` .. in the UM_RESOURCE at {site}.rc
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!     
 check the fcm_make2_drivers
 examine `~/cylc-run/u-dw345/share/fcm_make_drivers/build/bin`
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!          
+I used the restart files from u-di622 (Eocene suite) for the piControl. That is a **huge mistake**.     
+Fix it, once the outage end.
 
