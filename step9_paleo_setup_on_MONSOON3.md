@@ -178,11 +178,17 @@ I am trying to generate it with the `DOMAINcfg` tools.
 Some repository for reference：
 [A example for regional model](https://github.com/NOC-MSM/Regional-NEMO-Medusa)
 See its [Wiki](https://github.com/NOC-MSM/Regional-NEMO-Medusa/wiki/) for usage.
+[Official resource](https://forge.nemo-ocean.eu/nemo/nemo.git)
 
 My attemption:
-1. [On Monsoon3] git clone https://github.com/NOC-MSM/Regional-NEMO-Medusa.git.
-2. [On Archer2: under the work directory of di-622] rsync -avg /work/n02/n02/ssteinig/ancils/DeepMIP-Eocene/gc31/ancils_seb/ocean/eORCA_R1_bathy_meter_v2.0_eocene_chiselled.min30m.nc /work/y07/shared/umshared/hadgem3/grids/ocean/eORCA1v2.2x//eORCA1_coordinates_nc4.nc_from_MR clogin:/data/users/zikun.ren.ext/ancil/NEMO_tool/bathmetry_coordinate_from_di-622/
-3. 
+1. [On Archer2] git clone https://forge.nemo-ocean.eu/nemo/nemo.git ./nemo-main
+2. cd nemo-main
+3. load the demanded modules:
+```
+                 module load cray-hdf5-parallel
+                 module load cray-netcdf-hdf5parallel
+```
+4. cd tools; ./maketools -m X86_ARCHER2-Cray -n DOMAINcfg
 
 ##### viscosity coefficient (configuration change)
 In GC3 the viscosity coefficient in tropical area is modified by the `AHMCOEF` file, while in GC5 it is turned into a 3d distribution documented in `eddy_viscosity_3D.nc`. Therefore a new script should be build to generate the 3D distribution of viscosity which is adapted to Eocene mask.    
