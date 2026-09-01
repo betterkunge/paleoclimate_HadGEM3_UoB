@@ -118,7 +118,8 @@ Above all, in the GC3.1 LGM suite reach an spurious balance. So, the model can r
 **resolution:**    
 switch on the initialization of NEMO.
 
-##### Seaice abnormally cumulated over the Arctica Ocean (after 30years' running)
+##### Seaice abnormally cumulated over the Arctica Ocean (after 30 years' running)
+###### DEBUG log #1
 time series of Arctic on-site `sithic`(sea-ice thickness):    
 <img width="1364" height="870" alt="e0141142-4583-4c58-8e4f-3c9582cd8fb6" src="https://github.com/user-attachments/assets/c1f92d4e-0b96-41f5-8727-df3f9aca3c0a" />
 time series of Arctic on-site `sidmassgrowthwat`(sea-ice mass change through growth in supercooled open water(frazil)):    
@@ -180,6 +181,18 @@ To resolve this issue, we must make use of an existing threshold inspection, the
 203             !
 This if statement means that when a grid cell is nearly fully covered by sea ice, qlead is set to zero, because there is essentially no open-water lead remaining within the sea ice. However, in the default setup of piControl, the threshold can never reach, for the ice fraction is capped at a maximum value of 0.997.      
 To make this threshold works correctly, we replace `epsi10` with 0.01_wp. Then, the model works correctly.
+
+###### DEBUG log #2
+The growth of sea ice didn't stop after the above changes. After lowering the threshold, the growth of seaice still doesn't stop. Despite, the sidmassgrowthwat decreased to zero over ice-covered area, the sidmassgrowthbot surged instead. Therefore, I thought the growth of sea ice should have some other causes. Another finding from the first check of the outputs is that, there is a clear temperature gap around the latitude of iceland-faroe ridge.      
+<img width="799" height="425" alt="image" src="https://github.com/user-attachments/assets/7a8aeed9-20dd-499c-8eb0-9e4f7237fde5" />
+I thought the key reason underlying this is that the bathymetry is too shallow over there to support some effective currents to import energy into Arctica Ocean.      
+After another forty years, an error similar with [the error happened within first 10 years](https://github.com/PalaeoClimateModellingUK/paleoclimate_HadGEM3_UoB/blob/main/Paleo_suites_setup/step2.5_LGM_setup_on_ARCHER2%20(notes%20for%20u-ea977).md#seaice-abnormally-cumulated-over-the-arctica-ocean-first-10-years) occured again.      
+In the beginning, there is no significant error information, but only a `core` file. And further diagnosis on it shows it happens during the diagnostic function `zdf_mxl_zint_mld`, which is used to calculate the depth of mixed layer (mldzint_1). This is not the sources of this error with no surprise.      
+
+After setting `nn_mld_diag` as 0. This error is displaced with the broken `ssh`. And the high-frequency outputs of SSH shows the crash happened suddenly at the Arctica Ocean. Considering this error happened at the time point the max sea ice thickness getting close to 99, which is the fixed limit of sea ice thickness `rn_himax`. Now we have reset the rn_himax as 999 and restart the suite. Let's see what's going on.      
+
+If this fail, I will try to output other sea ice related variables in every timestep, at the same time, we will switch on ln_icectl and ln_icediachk and further check the outputs.
+
 
 
 ##### PPTRANSFER ONLY cover existing RUN_ID
