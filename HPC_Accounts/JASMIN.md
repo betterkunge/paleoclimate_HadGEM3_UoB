@@ -86,7 +86,10 @@ To request an interactive compute node on JASMIN, use `salloc` from a login or s
 For example, a short test can be run on the `debug` partition:
 
 ```bash
-salloc -A past2future -p debug -q debug --cpus-per-task=4 --mem=16G
+（old）salloc -A past2future -p debug -q debug --cpus-per-task=4 --mem=16G
+```
+```
+（new）inter --account=past2future
 ```
 
 This requests:
