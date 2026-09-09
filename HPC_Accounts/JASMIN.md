@@ -182,8 +182,8 @@ If the default QoS is appropriate, you may not need to specify `-q` explicitly:
 salloc -A past2future -p standard \
        --cpus-per-task=4 --mem=16G --time=02:00:00
 ```
-
----
+inter --account=past2future
+```
 
 ### 4. Wait for the allocation
 
